@@ -1,0 +1,73 @@
+@startuml
+
+package Controller {
+    class RPSGamecontroller {
+        - Players playerA
+        - Players playerB
+        - Match match
+        + void rpsGame()
+        + void executeGame()
+        + void exitGame()
+        + void createPlayers()
+        + void createMatch()
+    }
+
+    class MatchController {
+        - Rounds rounds
+        - Score score
+        + void match()
+        + void executeInitialRound()
+        + void executeRounds()
+        + void checkScore()
+        + void announceWinner()
+        + void updateRoundNumber()
+    }
+
+    class RoundController {
+        - Score score
+        - Players[] players
+        - int myRoundNumber
+        - Shapes playerAShapeSelected
+        - Shapes playerBShapeSelected
+        + void Rounds()
+        + void runningRound()
+        + void checkWinnerOfTheRound()
+    }
+
+    abstract class PlayerController {
+        - int id_Player
+        - String name
+        - TypePlayer id_TypePlayer
+        + Shape chooseAShape()
+    }
+
+    class HumanPlayerController {
+        + Shape chooseAShape()
+    }
+
+    class ComputerPlayercontroller {
+        + Shape chooseAShape()
+    }
+
+    class scoreController {
+        - int p1Score
+        - int p2Score
+        + void showFinalResults()
+        + int getP1Score()
+        + int getP2Score()
+        + void updateScoreGame()
+    }
+
+    PlayerController <|-- HumanPlayerController
+    PlayerController <|-- ComputerPlayercontroller
+    RPSGamecontroller --> MatchController
+    MatchController --> RoundController
+    RPSGamecontroller --> PlayerController
+    MatchController --> scoreController
+}
+
+package model {
+    
+}
+
+@enduml
