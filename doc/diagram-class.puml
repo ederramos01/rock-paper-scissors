@@ -1,79 +1,86 @@
 @startuml ClassDiagram
 
 Package Game {
-abstract class Players{
-    - int id_Player
-    - String name
-    - TypePlayer id_TypePlayer
-    + Shape chooseAShape()
-}
-class HumanPlayer{
-    + Shape chooseAShape()
-}
-class ComputerPlayer{
-    + Shape chooseAShape()
-}
-class Score{
-    - int p1Score
-    - int p2Score
-    + void showFinalResults()
-    + int getP1Score()
-    + int getP2Score()
-    + void updateScoreGame()
-}
-class Rounds{
-    - Score score
-    - Players[] players
-    - int myRoundNumber
-    - Shapes playerAShapeSelected
-    - Shapes playerBShapeSelected
-    + void Rounds()
-    + void runningRound()
-    + void checkWinnerOfTheRound()
-}
+    abstract class Players{
+        - int id_Player
+        - String name
+        - TypePlayer id_TypePlayer
+        + Shape chooseAShape()
+    }
+    class HumanPlayer{
+        + Shape chooseAShape()
+    }
+    class ComputerPlayer{
+        + Shape chooseAShape()
+    }
+    class Score{
+        - int p1Score
+        - int p2Score
+        + void showFinalResults()
+        + int getP1Score()
+        + int getP2Score()
+        + void updateScoreGame()
+    }
+    class Rounds{
+        - Score score
+        - Players[] players
+        - int myRoundNumber
+        - Shapes playerAShapeSelected
+        - Shapes playerBShapeSelected
+        + void Rounds()
+        + void runningRound()
+        + void checkWinnerOfTheRound()
+    }
 
-class Match{
-    - Rounds rounds
-    - Score score
-    + void match()
-    + void executeInitialRound()
-    + void executeRounds()
-    + void checkScore()
-    + void announceWinner()
-    + void updateRoundNumber()
-}
+    class Match{
+        - Rounds rounds
+        - Score score
+        + void match()
+        + void executeInitialRound()
+        + void executeRounds()
+        + void checkScore()
+        + void announceWinner()
+        + void updateRoundNumber()
+    }
 
-class RpsGame{            
-    - Players playerA
-    - Players playerB
-    - Match match
+    class RpsGame{
 
-    + void rpsGame()
-    + void executeGame()
-    + void exitGame()
-    + void createPlayers()
-    + void createMatch()
-}
+        - Players playerA
+        - Players playerB
+        - Match match
 
-enum Shapes{
-    Rock
-    Paper
-    Scissors
-}
+        + void rpsGame()
+        + void executeGame()
+        + void exitGame()
+        + void createPlayers()
+        + void createMatch()
+    }
 
-RpsGame *-- Players
-RpsGame *-- Match
+    enum Shapes{
+        Rock
+        Paper
+        Scissors
+    }
 
-Players o-- Shapes
-Match --> Players
-Players <|-- HumanPlayer
-Players <|-- ComputerPlayer
-Rounds --> Players
+    enum TypePlayer {
+        ComputerPlayer
+        HumanPlayer
+    }
 
-Rounds --> Score
-Rounds *-- Shapes
-Match *-- Rounds
-Match *-- Score
+    RpsGame *-- Players
+    RpsGame *-- Match
+
+    Players o-- Shapes
+    Players o-- TypePlayer
+    Match --> Players
+    Players <|-- HumanPlayer
+    Players <|-- ComputerPlayer
+    Rounds --> Players
+
+    Rounds --> Score
+    Rounds *-- Shapes
+    Match *-- Rounds
+    Match *-- Score
 
 }
 @enduml
