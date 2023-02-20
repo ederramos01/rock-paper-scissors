@@ -1,0 +1,76 @@
+@startuml ClassDiagram
+
+Package Game {
+abstract class Players{
+    - int id_Player
+    - String name
+    - TypePlayer id_TypePlayer
+    + Shape chooseAShape()
+}
+class HumanPlayer{
+    + Shape chooseAShape()
+}
+class ComputerPlayer{
+    + Shape chooseAShape()
+}
+class Score{
+    - int p1Score
+    - int p2Score
+    + void showFinalResults()
+    + int getP1Score()
+    + int getP2Score()
+    + void updateScoreGame()
+}
+class Rounds{
+    - int myRoundNumber
+    - Shapes playerAShapeSelected
+    - Shapes playerBShapeSelected
+    + void Rounds()
+    + void runningRound()
+    + void checkWinnerOfTheRound()
+}
+
+class Match{
+    - Rounds rounds
+    - Score score
+    + void match()
+    + void executeInitialRound()
+    + void executeRounds()
+    + void checkScore()
+    + void announceWinner()
+    + void updateRoundNumber()
+}
+
+class RpsGame{            
+    - Players playerA
+    - Players playerB
+    - Match match
+
+    + void rpsGame()
+    + void executeGame()
+    + void exitGame()
+    + void createPlayers()
+    + void createMatch()
+}
+
+enum Shapes{
+    Rock
+    Paper
+    Scissors
+}
+
+RpsGame *-- Players
+RpsGame *-- Match
+
+Players o-- Shapes
+Match --> Players
+Players <|-- HumanPlayer
+Players <|-- ComputerPlayer
+
+Rounds --> Score
+Rounds *-- Shapes
+Match *-- Rounds
+Match *-- Score
+
+}
+@enduml
