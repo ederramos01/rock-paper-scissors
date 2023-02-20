@@ -1,0 +1,156 @@
+@startuml
+
+package View{
+    class RPSGameView {
+        + void rpsGame()
+        + void executeGame()
+    }
+
+    class MatchView {
+        + void match()
+        + void executeInitialRound()
+        + void executeRounds()
+    }
+
+    class RoundView {
+        + void Rounds()
+        + void runningRound()
+    }
+
+    class ScoreView {
+        + void showFinalResults()
+    }
+}
+
+package Controller {
+    class RPSGamecontroller {
+        - Players playerA
+        - Players playerB
+        - Match match
+        + void rpsGame()
+        + void executeGame()
+        + void exitGame()
+        + void createPlayers()
+        + void createMatch()
+    }
+
+    class MatchController {
+        - Rounds rounds
+        - Score score
+        + void match()
+        + void executeInitialRound()
+        + void executeRounds()
+        + void checkScore()
+        + void announceWinner()
+        + void updateRoundNumber()
+    }
+
+    class RoundController {
+        - Score score
+        - Players[] players
+        - int myRoundNumber
+        - Shapes playerAShapeSelected
+        - Shapes playerBShapeSelected
+        + void Rounds()
+        + void runningRound()
+        + void checkWinnerOfTheRound()
+    }
+
+    abstract class PlayerController {
+        - int id_Player
+        - String name
+        - TypePlayer id_TypePlayer
+        + Shape chooseAShape()
+    }
+
+    class HumanPlayerController {
+        + Shape chooseAShape()
+    }
+
+    class ComputerPlayercontroller {
+        + Shape chooseAShape()
+    }
+
+    class ScoreController {
+        - int p1Score
+        - int p2Score
+        + void showFinalResults()
+        + int getP1Score()
+        + int getP2Score()
+        + void updateScoreGame()
+    }
+
+    PlayerController <|-- HumanPlayerController
+    PlayerController <|-- ComputerPlayercontroller
+    RPSGamecontroller --> MatchController
+    MatchController --> RoundController
+    RPSGamecontroller --> PlayerController
+    MatchController --> ScoreController
+
+    
+}
+
+package model {
+    
+    class Round {
+    -id_round int
+    -id_match Match
+    -id_shape1 Shape
+    -id_shape2 Shape
+    -id_score Score
+}
+
+class Match {
+    -id_match int
+    -id_score Score
+    -id_player1 Player
+    -id_player2 Player
+}
+
+class Score {
+    -id_score int
+    -id_player1 Player
+    -id_player2 Player
+    -id_winner Player
+}
+
+class Shape {
+    -id_shape int
+    -name String
+}
+
+class Player{
+    -id_player int
+    -name String
+    -id_typePlayer TypePlayer
+}
+
+class TypePlayer {
+    -id_typePlayer int
+    -name String
+}
+
+    Match *-- Round
+    Match *-- Player
+    Round o-- Shape
+    Player *-- TypePlayer
+    Match *-- Score 
+}
+
+PlayerController *--> Player
+MatchController --> Player
+RPSGamecontroller *--> Player
+RPSGamecontroller *--> Match
+RoundController *--> Round
+ScoreController *--> Score
+
+RPSGameView ..> PlayerController
+MatchView ..> MatchController
+
+RPSGameView ..> MatchView
+MatchView ..> RoundView
+MatchView ..> ScoreView
+ScoreView ..> ScoreController
+RoundView ..> RoundController
+
+@enduml
