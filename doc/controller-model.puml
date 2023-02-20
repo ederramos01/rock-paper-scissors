@@ -49,7 +49,7 @@ package Controller {
         + Shape chooseAShape()
     }
 
-    class scoreController {
+    class ScoreController {
         - int p1Score
         - int p2Score
         + void showFinalResults()
@@ -63,11 +63,63 @@ package Controller {
     RPSGamecontroller --> MatchController
     MatchController --> RoundController
     RPSGamecontroller --> PlayerController
-    MatchController --> scoreController
+    MatchController --> ScoreController
+
+    
 }
 
 package model {
     
+    class Round {
+    -id_round int
+    -id_match Match
+    -id_shape1 Shape
+    -id_shape2 Shape
+    -id_score Score
 }
+
+class Match {
+    -id_match int
+    -id_score Score
+    -id_player1 Player
+    -id_player2 Player
+}
+
+class Score {
+    -id_score int
+    -id_player1 Player
+    -id_player2 Player
+    -id_winner Player
+}
+
+class Shape {
+    -id_shape int
+    -name String
+}
+
+class Player{
+    -id_player int
+    -name String
+    -id_typePlayer TypePlayer
+}
+
+class TypePlayer {
+    -id_typePlayer int
+    -name String
+}
+
+    Match *-- Round
+    Match *-- Player
+    Round o-- Shape
+    Player *-- TypePlayer
+    Match *-- Score 
+}
+
+PlayerController *--> Player
+MatchController --> Player
+RPSGamecontroller *--> Player
+RPSGamecontroller *--> Match
+RoundController *--> Round
+ScoreController *--> Score
 
 @enduml
