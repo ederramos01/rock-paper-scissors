@@ -32,7 +32,7 @@ object scoreGoals
 object showFinalResult
 object getPlayersScore
 
-RPSGame <|-- RPSgameGoals 
+RPSGame *-- RPSgameGoals 
 RPSgameGoals <|-- createPlayers
 RPSgameGoals <|-- createMatch
 
@@ -43,7 +43,7 @@ round --> score
 round <|-- roundGoals
 roundGoals <|-- evaluateShapes
 
-score <|-- scoreGoals
+score *-- scoreGoals
 scoreGoals <|-- showFinalResult
 scoreGoals <|-- getPlayersScore
 
@@ -51,14 +51,14 @@ match --> player
 match o-- score
 match *-- round
 
-player <|-- playerGoals
+player *-- playerGoals
 player <|-- humanPlayer
 player <|-- computerPlayer
 player o-- shapes
 playerGoals <|-- win  
 playerGoals ..> selectShape  
 
-match <|-- matchGoals
+match *-- matchGoals
 matchGoals <|-- createScore
 matchGoals <|-- updateScore
 matchGoals <|-- createRounds

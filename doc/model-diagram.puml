@@ -1,0 +1,26 @@
+@startuml
+
+class Round {
+
+}
+
+class Match {
+
+}
+
+class Shape {
+
+}
+
+class Player{
+
+}
+
+class TypePlayer {
+
+}
+
+Round *-- Match
+
+
+@enduml
