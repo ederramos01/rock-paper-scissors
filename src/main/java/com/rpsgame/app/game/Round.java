@@ -55,31 +55,58 @@ public class Round {
                 "#\n" +
                 "#\n");
         if( (p1option.toString() == "Paper" && p2option.toString()== "Rock") ){
-            updateScoreGame(1);
+            updateScoreGame(1); //si es 1 gana p1
+            announceWinnerOfTheRound(p1option, p2option, 1);
         }
         if( (p1option.toString() == "Paper" && p2option.toString()== "Scissors") ){
-            updateScoreGame(2);
+            updateScoreGame(2); //si es 2 gana p2
+            announceWinnerOfTheRound(p1option, p2option, 2);
         }
         if( (p1option.toString() == "Paper" && p2option.toString()== "Paper") ){
             updateScoreGame(3);
+            announceWinnerOfTheRound(p1option, p2option, 3);
         }
         if( (p1option.toString() == "Rock" && p2option.toString()== "Rock") ){
             updateScoreGame(3);
+            announceWinnerOfTheRound(p1option, p2option,3);
         }
         if( (p1option.toString() == "Rock" && p2option.toString()== "Scissors") ){
             updateScoreGame(1);
+            announceWinnerOfTheRound(p1option, p2option, 1);
         }
         if( (p1option.toString() == "Rock" && p2option.toString()== "Paper") ){
             updateScoreGame(2);
+            announceWinnerOfTheRound(p1option, p2option, 2);
         }
         if( (p1option.toString() == "Scissors" && p2option.toString()== "Rock") ){
-            updateScoreGame(2);    
+            updateScoreGame(2);   
+            announceWinnerOfTheRound(p1option, p2option, 2); 
         }
         if( (p1option.toString() == "Scissors" && p2option.toString()== "Scissors") ){
             updateScoreGame(3);
+            announceWinnerOfTheRound(p1option, p2option, 3);
         }
         if( (p1option.toString() == "Scissors" && p2option.toString()== "Paper") ){
             updateScoreGame(1);
+            announceWinnerOfTheRound(p1option, p2option, 1);
+        }
+
+
+    }
+
+    private void announceWinnerOfTheRound(Shapes p1, Shapes p2, int winner) {
+        // # ROCK BEATS SCISSORS 
+        //# PLAYER 2 WINS!!!!! P2 HAVE SCORED 1 POINT OUT OF 3.
+        if(winner == 1){
+            System.out.println("# " + p1.toString() + " BEATS " + p2.toString());
+            System.out.println("# " + player1.getName() + " WINS!!!!! " + player1.typePlayer() + " HAVE SCORED " + score.getP1Score() + " POINT OUT OF 3.");
+        }
+        if(winner == 2){
+            System.out.println("# " + p2.toString() + " BEATS " + p1.toString());
+            System.out.println("# " + player2.getName() + " WINS!!!!! " + player2.typePlayer() + " HAVE SCORED " + score.getP2Score() + " POINT OUT OF 3.");
+        }
+        if(winner == 3){
+            System.out.println("# DRAW . . . " + p1.toString() + " are the same with " + p2.toString());
         }
 
     }
@@ -89,10 +116,6 @@ public class Round {
             score.updateP1Score();
         }
         if(assingPoint == 2){
-            score.updateP2Score();
-        }
-        if(assingPoint == 3){
-            score.updateP1Score();
             score.updateP2Score();
         }
     }

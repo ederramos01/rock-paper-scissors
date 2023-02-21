@@ -24,4 +24,9 @@ public class ComputerPlayer extends Player {
     public TypePlayer typePlayer() {
         return TypePlayer.IA;
     }
+
+    @Override
+    public String getName() {
+        return "Computer Player";
+    }
 }

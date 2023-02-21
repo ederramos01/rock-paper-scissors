@@ -41,11 +41,11 @@ public class Match {
         if( score.getP1Score() < 3 && score.getP2Score() < 3 ){
             executeRounds(score);
         } else{
-            announceWinner();
+            announceWinnerOfTheMatch();
         }
     }
 
-    private void announceWinner() {
+    private void announceWinnerOfTheMatch() {
         String winner = "";
         if(score.getP1Score() == 3) {
             winner = "Player1 which is a " + players.get(0).typePlayer();

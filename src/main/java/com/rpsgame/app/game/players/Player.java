@@ -6,6 +6,8 @@ public abstract class Player {
     protected String name;
     protected TypePlayer id_typePlayer;
 
+    public abstract String getName();
+
     public abstract Shapes chooseAShape();
 
     public abstract TypePlayer typePlayer();

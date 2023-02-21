@@ -10,6 +10,11 @@ public class HumanPlayer extends Player {
     }
 
     @Override
+    public String getName() {
+        return this.name;
+    }
+
+    @Override
     public Shapes chooseAShape() {
         int option = Console.getInt("#SELECT AN OPTION: ");
         return switch (option){
