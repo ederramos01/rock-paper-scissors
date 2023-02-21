@@ -1,4 +1,4 @@
-package com.rpsgame.app;
+package com.rps.app;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

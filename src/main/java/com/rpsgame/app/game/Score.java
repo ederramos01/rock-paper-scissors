@@ -1,3 +1,5 @@
+package com.rpsgame.app.game;
+
 public class Score {
 
     private int p1Score;

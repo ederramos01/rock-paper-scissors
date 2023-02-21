@@ -1,4 +1,5 @@
-package util;
+package com.rpsgame.app.game.util;
+
 import java.util.Scanner;
 
 public class Console {

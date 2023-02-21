@@ -1,6 +1,8 @@
+package com.rpsgame.app.game;
+
 import java.util.ArrayList;
 
-import players.Player;
+import com.rpsgame.app.game.players.Player;
 
 public class Match {
 

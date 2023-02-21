@@ -1,4 +1,4 @@
-package players;
+package com.rpsgame.app.game.players;
 
 import java.util.Random;
 

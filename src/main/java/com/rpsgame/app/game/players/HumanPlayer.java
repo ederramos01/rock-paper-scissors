@@ -1,6 +1,6 @@
-package players;
+package com.rpsgame.app.game.players;
 
-import util.Console;
+import com.rpsgame.app.game.util.Console;
 
 public class HumanPlayer extends Player {
 

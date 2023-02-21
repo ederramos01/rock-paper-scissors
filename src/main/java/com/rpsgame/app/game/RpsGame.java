@@ -1,9 +1,11 @@
+package com.rpsgame.app.game;
+
 import java.util.ArrayList;
 
-import players.ComputerPlayer;
-import players.HumanPlayer;
-import players.Player;
-import util.Console;
+import com.rpsgame.app.game.players.ComputerPlayer;
+import com.rpsgame.app.game.players.HumanPlayer;
+import com.rpsgame.app.game.players.Player;
+import com.rpsgame.app.game.util.Console;
 
 public class RpsGame {
 

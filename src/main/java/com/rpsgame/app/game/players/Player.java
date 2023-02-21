@@ -1,4 +1,4 @@
-package players;
+package com.rpsgame.app.game.players;
 
 public abstract class Player {
 

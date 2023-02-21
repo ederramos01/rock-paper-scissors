@@ -1,7 +1,9 @@
+package com.rpsgame.app.game;
+
 import java.util.ArrayList;
 
-import players.Player;
-import players.Shapes;
+import com.rpsgame.app.game.players.Player;
+import com.rpsgame.app.game.players.Shapes;
 
 public class Round {
 
@@ -52,6 +54,7 @@ public class Round {
     // PROBABLEMENTE SEA POR COMO SE ESTA COMPARANDO 
     // poner asi: p1option contiene un enum Shape if(p1option && p2option) asignar puntos
     private void ROCKPAPERSCISSOR(Shapes p1option, Shapes p2option){
+        System.out.println("player 1 with " + p1option.toString() + " and player 2 with " + p2option.toString());
         System.out.println("##READY . . . ?\n" +
                 "#\n" +
                 "#\n");
@@ -59,11 +62,11 @@ public class Round {
         //player1Shape vs player2Shape
         if( (p1option.toString() == "Paper" && p2option.toString()== "Rock") ){
             updateScoreGame(1);
-                    }
+        }
         if( (p1option.toString() == "Paper" && p2option.toString()== "Scissors") ){
             updateScoreGame(2);
-                    }
-        if( (p1option.toString() == "Paper" && p2option.toString()== "paper") ){
+        }
+        if( (p1option.toString() == "Paper" && p2option.toString()== "Paper") ){
             updateScoreGame(3);
         }
         if( (p1option.toString() == "Rock" && p2option.toString()== "Rock") ){
@@ -71,19 +74,17 @@ public class Round {
         }
         if( (p1option.toString() == "Rock" && p2option.toString()== "Scissors") ){
             updateScoreGame(1);
-                    }
-        if( (p1option.toString() == "Rock" && p2option.toString()== "paper") ){
+        }
+        if( (p1option.toString() == "Rock" && p2option.toString()== "Paper") ){
             updateScoreGame(2);
-            
         }
         if( (p1option.toString() == "Scissors" && p2option.toString()== "Rock") ){
-            updateScoreGame(2);
-            
+            updateScoreGame(2);    
         }
         if( (p1option.toString() == "Scissors" && p2option.toString()== "Scissors") ){
             updateScoreGame(3);
         }
-        if( (p1option.toString() == "Scissors" && p2option.toString()== "paper") ){
+        if( (p1option.toString() == "Scissors" && p2option.toString()== "Paper") ){
             updateScoreGame(1);
         }
 
