@@ -50,16 +50,10 @@ public class Round {
         ROCKPAPERSCISSOR(p1option, p2option);
     }
 
-    //ESTA FUNCION NO ESTA DETERMINANDO BIEN LOS RESULTADOS REVISAR PORQUE
-    // PROBABLEMENTE SEA POR COMO SE ESTA COMPARANDO 
-    // poner asi: p1option contiene un enum Shape if(p1option && p2option) asignar puntos
     private void ROCKPAPERSCISSOR(Shapes p1option, Shapes p2option){
-        System.out.println("player 1 with " + p1option.toString() + " and player 2 with " + p2option.toString());
         System.out.println("##READY . . . ?\n" +
                 "#\n" +
                 "#\n");
-        //reglas del juego
-        //player1Shape vs player2Shape
         if( (p1option.toString() == "Paper" && p2option.toString()== "Rock") ){
             updateScoreGame(1);
         }
