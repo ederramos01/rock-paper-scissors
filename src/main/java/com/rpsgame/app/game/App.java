@@ -1,4 +1,4 @@
-package com.rpsgame.app;
+package com.rpsgame.app.game;
 
 /**
  * Hello world!
@@ -8,6 +8,7 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        RpsGame myGame = new RpsGame();
+        myGame.ExecuteGame();
     }
 }

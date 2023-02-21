@@ -1,63 +1,60 @@
-package com.rpsgame.app;
-
 import java.util.ArrayList;
+
+import players.ComputerPlayer;
+import players.HumanPlayer;
+import players.Player;
+import util.Console;
 
 public class RpsGame {
 
     Match myMatch;
 
     public void ExecuteGame() {
+       
         int menuOption1 = 0;
         int menuOPtion2 = 0;
-        boolean isValidOption = true;
-        System.out.println(getMessage(1));
 
-        while (menuOption1 == 0 || menuOption1 >= 3) {
+        getMessages(1);
+        System.out.println("#1. PLAY");
+        System.out.println("#2. QUIT");
+        System.out.println("#");
 
-            System.out.println("#1. PLAY");
-            System.out.println("#2. QUIT");
-            System.out.println("#");
-            
-            menuOption1 = Console.getInt("#SELECT AN OPTION: ");
-
-            if (menuOption1 == 1) {
-                System.out.println(getMessage(2));
-                do {
-                    isValidOption = true;
-                    menuOPtion2 = Console.getInt("#SELECT AN OPTION: ");
-                    if (menuOPtion2 > 3) {
-                        isValidOption = false;
-                    }
-                } while (!isValidOption);
-                myMatch = createMatch(createPlayers(menuOPtion2));
-            }
-            if (menuOption1 == 2) {
-                exitGame();
-            }
+        while (menuOption1 < 1 || menuOption1 > 3) {
+            System.out.print("\tYour option: ");
+            menuOption1 = Console.getInt();
         }
-    }
 
-    public void exitGame() {
-        System.out.println("Exiting the game... bye bye!");
+        if (menuOption1 == 1) {
+            getMessages(2);
+            while (menuOPtion2 < 1 || menuOPtion2 > 3) {
+                System.out.print("\tYour option: ");
+                menuOPtion2 = Console.getInt();
+            }
+            myMatch = createMatch(createPlayers(menuOPtion2));
+        }
+        if (menuOption1 == 2) {
+            exitGame();
+        }
     }
 
     public Match createMatch(ArrayList<Player> players){
         System.out.println("Match created");
         return new Match(players);
     }
-
+    
     public ArrayList<Player> createPlayers(int option) {
+        String name;
         ArrayList<Player> myPlayers = new ArrayList<Player>();
         switch (option) {
             case 1 -> {
-                Player p1 = new HumanPlayer();
-                myPlayers.add(p1);
-                Player p2 = new HumanPlayer();
-                myPlayers.add(p2);
+                name = Console.getString("Enter a name for player1: ");
+                myPlayers.add(setHumanPlayer(name));
+                name = Console.getString("Enter a name for player2: ");
+                myPlayers.add(setHumanPlayer(name));
             }
             case 2 -> {
-                Player p1 = new HumanPlayer();
-                myPlayers.add(p1);
+                name = Console.getString("Enter a name for player1: ");
+                myPlayers.add(setHumanPlayer(name));
                 Player p2 = new ComputerPlayer();
                 myPlayers.add(p2);
             }
@@ -69,22 +66,29 @@ public class RpsGame {
             }
         }
         System.out.println("Players created");
-        myPlayers.forEach(System.out::println);
         return myPlayers;
     }
 
-    public String getMessage(int option) {
-        return switch (option) {
-            case 1 -> "#Welcome to Rock, Scissors, Paper!!!\n" +
-                    "#THIS IS A GAME WHERE YOU PICK A WEAPON AND FIGHT AGAINST\n" +
-                    "#YOUR OPPONENT. YOU WIN WHEN YOU REACH 3 POINTS FIRST!!!\n" +
-                    "#MENU:\n#";
-            case 2 -> "# SETUP YOUR GAME BY CHOOSING YOUR PLAYERS:\n" +
-                    "#\n" +
-                    "#1. HUMAN VS HUMAN\n" +
-                    "#2. HUMAN VS PC\n" +
-                    "#3. PC VS PC";
-            default -> "";
+    private Player setHumanPlayer(String name) {
+        return new HumanPlayer(name);
+    }
+
+    public void exitGame() {
+        System.out.println("Exiting the game... bye bye!");
+    }
+
+    public void getMessages(int option) {
+        switch (option) {
+            case 1 -> System.out.println("#Welcome to Rock, Scissors, Paper!!!\n" +
+            "#THIS IS A GAME WHERE YOU PICK A WEAPON AND FIGHT AGAINST\n" +
+            "#YOUR OPPONENT. YOU WIN WHEN YOU REACH 3 POINTS FIRST!!!\n" +
+            "#MENU:\n#");
+            case 2 -> System.out.println("# SETUP YOUR GAME BY CHOOSING YOUR PLAYERS:\n" +
+            "#\n" +
+            "#1. HUMAN VS HUMAN\n" +
+            "#2. HUMAN VS PC\n" +
+            "#3. PC VS PC");
+            default -> System.out.println("");
         };
     }
 }
