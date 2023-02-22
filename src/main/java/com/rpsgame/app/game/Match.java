@@ -2,7 +2,7 @@ package com.rpsgame.app.game;
 
 import java.util.ArrayList;
 
-import com.rpsgame.app.game.players.Player;
+import com.rpsgame.app.game.controller.PlayerController;
 
 public class Match {
 
@@ -11,12 +11,12 @@ public class Match {
      * p1Score <= 3 o p2Score <= 3
      */
 
-    private ArrayList<Player> players;
+    private ArrayList<PlayerController> players;
     private ArrayList<Round> rounds;
     private Score score;
     private int roundNumber;
 
-    public Match(ArrayList<Player> players) {
+    public Match(ArrayList<PlayerController> players) {
         this.score = new Score();
         this.roundNumber = 1;
         this.rounds = new ArrayList<>();
@@ -24,7 +24,7 @@ public class Match {
         executeInitialRound(roundNumber, players, score);
     }
 
-    private void executeInitialRound(int roundNumber, ArrayList<Player> players, Score score) {
+    private void executeInitialRound(int roundNumber, ArrayList<PlayerController> players, Score score) {
         Round round = new Round(score, roundNumber, players);
         updateRoundNumber(round);
         checkScore(round);

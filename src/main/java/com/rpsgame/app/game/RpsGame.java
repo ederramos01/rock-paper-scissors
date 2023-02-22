@@ -2,9 +2,9 @@ package com.rpsgame.app.game;
 
 import java.util.ArrayList;
 
-import com.rpsgame.app.game.players.ComputerPlayer;
-import com.rpsgame.app.game.players.HumanPlayer;
-import com.rpsgame.app.game.players.Player;
+import com.rpsgame.app.game.controller.ComputerPlayerController;
+import com.rpsgame.app.game.controller.HumanPlayerController;
+import com.rpsgame.app.game.controller.PlayerController;
 import com.rpsgame.app.game.util.Console;
 
 public class RpsGame {
@@ -39,31 +39,32 @@ public class RpsGame {
         }
     }
 
-    public Match createMatch(ArrayList<Player> players){
+    public Match createMatch(ArrayList<PlayerController> players){
         System.out.println("Match created");
         return new Match(players);
     }
     
-    public ArrayList<Player> createPlayers(int option) {
+    public ArrayList<PlayerController> createPlayers(int option) {
         String name;
-        ArrayList<Player> myPlayers = new ArrayList<Player>();
+        ArrayList<PlayerController> myPlayers = new ArrayList<PlayerController>();
         switch (option) {
             case 1 -> {
                 name = Console.getString("Enter a name for player1: ");
                 myPlayers.add(setHumanPlayer(name));
+                
                 name = Console.getString("Enter a name for player2: ");
                 myPlayers.add(setHumanPlayer(name));
             }
             case 2 -> {
                 name = Console.getString("Enter a name for player1: ");
                 myPlayers.add(setHumanPlayer(name));
-                Player p2 = new ComputerPlayer();
+                PlayerController p2 = new ComputerPlayerController();
                 myPlayers.add(p2);
             }
             case 3 -> {
-                Player p1 = new ComputerPlayer();
+                PlayerController p1 = new ComputerPlayerController();
                 myPlayers.add(p1);
-                Player p2 = new ComputerPlayer();
+                PlayerController p2 = new ComputerPlayerController();
                 myPlayers.add(p2);
             }
         }
@@ -71,8 +72,8 @@ public class RpsGame {
         return myPlayers;
     }
 
-    private Player setHumanPlayer(String name) {
-        return new HumanPlayer(name);
+    private PlayerController setHumanPlayer(String name) {
+        return new HumanPlayerController(name);
     }
 
     public void exitGame() {
