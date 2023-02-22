@@ -9,10 +9,6 @@ public class Round {
 
     private int roundNumber;
     private Score score;
-
-    //private static int p1Score;
-    //private static int p2Score;
-
     private Player player1;
     private Player player2;
 

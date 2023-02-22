@@ -1,17 +1,11 @@
 package com.rps.app;
 
-import com.rpsgame.app.game.RpsGame;
+import com.rps.app.controller.Controller;
 
-/**
- * Hello world!
- *
- */
-public class App 
-{
-    public static void main( String[] args )
-    {
-        RpsGame rpsGame = new RpsGame();
+public class App {
+    public static void main( String[] args ){
 
-        rpsGame.ExecuteGame();
+        Controller mainController = new Controller();
+        mainController.ExecuteGame();
     }
 }
