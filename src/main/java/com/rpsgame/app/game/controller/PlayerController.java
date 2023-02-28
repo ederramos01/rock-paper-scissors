@@ -5,7 +5,6 @@ import com.rpsgame.app.game.model.TypePlayerModel;
 
 public abstract class PlayerController {
 
-    protected int id_player;
     protected String name;
     protected TypePlayerModel id_typePlayer;
 

@@ -2,22 +2,12 @@ package com.rpsgame.app.game.model;
 
 public class PlayerModel {
     
-    private int id_player;
     private String name;
     private TypePlayerModel id_typePlayer;
 
-    public PlayerModel(int id_player, String name, TypePlayerModel id_typePlayer) {
-        this.id_player = id_player;
+    public PlayerModel(String name, TypePlayerModel id_typePlayer) {
         this.name = name;
         this.id_typePlayer = id_typePlayer;
-    }
-
-    public int getId_player() {
-        return id_player;
-    }
-
-    public void setId_player(int id_player) {
-        this.id_player = id_player;
     }
 
     public String getName() {
@@ -38,7 +28,7 @@ public class PlayerModel {
 
     @Override
     public String toString() {
-        return "PlayerModel - Player " + name + ", with ID " + id_player + ", the type player is " + id_typePlayer;
+        return "PlayerModel - Player " + name + ", the type player is " + id_typePlayer;
     }
 
 }

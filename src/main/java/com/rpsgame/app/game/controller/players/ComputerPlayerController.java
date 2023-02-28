@@ -3,13 +3,17 @@ package com.rpsgame.app.game.controller.players;
 import java.util.Random;
 
 import com.rpsgame.app.game.controller.PlayerController;
+import com.rpsgame.app.game.model.PlayerModel;
 import com.rpsgame.app.game.model.ShapesModel;
 import com.rpsgame.app.game.model.TypePlayerModel;
 
 public class ComputerPlayerController extends PlayerController {
 
+    PlayerModel playerModel;
+
     public ComputerPlayerController() {
         this.id_typePlayer = TypePlayerModel.IA;
+        this.playerModel = new PlayerModel("Computer", this.id_typePlayer);
     }
 
     @Override
@@ -32,5 +36,10 @@ public class ComputerPlayerController extends PlayerController {
     @Override
     public String getName() {
         return "Computer Player";
+    }
+
+    //Setter of Model's Player
+    public void setTypePlayer(TypePlayerModel typePlayer) {
+        playerModel.setId_typePlayer(typePlayer);
     }
 }
