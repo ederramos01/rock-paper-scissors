@@ -47,7 +47,6 @@ public class Round {
                 "#");
                 
         p2option = player2.chooseAShape();
-        //aqui se inserta hay que crear una en el modelo
         roundModel.setIdRound(roundNumber++);
         roundModel.setShape1(p1option);
         roundModel.setShape2(p2option);
