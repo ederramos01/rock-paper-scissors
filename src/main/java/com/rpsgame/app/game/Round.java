@@ -9,11 +9,8 @@ import com.rpsgame.app.game.model.RoundModel;
 
 public class Round {
 
-    private int roundNumber;
+    private static int roundNumber;
     private Score score;
-
-    //private static int p1Score;
-    //private static int p2Score;
 
     private PlayerController player1;
     private PlayerController player2;
@@ -24,7 +21,7 @@ public class Round {
         this.score = score;
         this.player1 = (PlayerController) player.get(0);
         this.player2 = (PlayerController) player.get(1);
-        this.roundNumber = roundNumber;
+        Round.roundNumber = 0;
         runningRound();
     }
 
@@ -50,7 +47,8 @@ public class Round {
                 "#");
                 
         p2option = player2.chooseAShape();
-
+        //aqui se inserta hay que crear una en el modelo
+        roundModel.setIdRound(roundNumber++);
         roundModel.setShape1(p1option);
         roundModel.setShape2(p2option);
         MatchHistory.addHistoryRound(roundModel);
@@ -117,9 +115,11 @@ public class Round {
             System.out.println("# DRAW . . . " + p1.toString() + " are the same with " + p2.toString());
         }
         int lastIndexScore = MatchHistory.getHistoryScore().size()-1;
+        System.out.print("\n");
         System.out.println(MatchHistory.getHistoryhPlayers().toString());
         System.out.println(MatchHistory.getHistoryScore().get(lastIndexScore).toString());
         System.out.println(MatchHistory.getHistoryRound().toString());
+        System.out.print("\n");
     }
 
     private void updateScoreGame(int assingPoint, PlayerController  player1, PlayerController  player2){

@@ -49,8 +49,7 @@ public class ScoreModel {
 
     @Override
     public String toString() {
-        return "ScoreModel [namePlayer1=" + namePlayer1 + ", namePlayer2=" + namePlayer2 + ", p1Score=" + p1Score
-                + ", p2Score=" + p2Score + "]";
+        return "ScoreModel - " + namePlayer1 + " with score " + p1Score + ", and " + namePlayer2 + " with score " + p2Score;
     }
 
     

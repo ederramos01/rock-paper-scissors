@@ -40,7 +40,7 @@ public class PlayerModel {
 
     @Override
     public String toString() {
-        return "PlayerModel [id_player=" + id_player + ", name=" + name + ", id_typePlayer=" + id_typePlayer + "]";
+        return "PlayerModel - Player " + name + ", with ID " + id_player + ", the type player is " + id_typePlayer;
     }
 
     
