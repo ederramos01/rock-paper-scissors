@@ -96,6 +96,10 @@ package Controller {
 }
 
 package model {
+
+    class Game {
+        -id_match
+    }
     
     class Round {
     -id_round int
@@ -134,7 +138,7 @@ class TypePlayer {
     -id_typePlayer int
     -name String
 }
-
+    Game *-- Match
     Match *-- Round
     Match *-- Player
     Round o-- Shape

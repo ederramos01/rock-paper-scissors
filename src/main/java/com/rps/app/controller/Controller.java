@@ -6,7 +6,7 @@ import com.rps.app.view.RPSGameView;
 
 public class Controller {
     
-    RPSGameController rpsGameController;
+    RPSController rpsGameController;
     MatchController matchController;
     RPSGameView view;
 
