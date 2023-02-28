@@ -1,6 +1,6 @@
-package com.rpsgame.app.game;
+package com.rpsgame.app.game.controller;
 
-public class Score {
+public class ScoreController {
 
     private int p1Score;
     private int p2Score;

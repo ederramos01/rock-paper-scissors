@@ -1,33 +1,32 @@
-package com.rpsgame.app.game;
+package com.rpsgame.app.game.controller;
 
 import java.util.ArrayList;
 
-import com.rpsgame.app.game.players.Player;
-import com.rpsgame.app.game.players.Shapes;
+import com.rpsgame.app.game.model.ShapesModel;
 
-public class Round {
+public class RoundController {
 
     private int roundNumber;
-    private Score score;
+    private ScoreController score;
 
     //private static int p1Score;
     //private static int p2Score;
 
-    private Player player1;
-    private Player player2;
+    private PlayerController player1;
+    private PlayerController player2;
 
 
-    public Round(Score score, int roundNumber, ArrayList<Player> player){
+    public RoundController(ScoreController score, int roundNumber, ArrayList<PlayerController> player){
         this.score = score;
-        this.player1 = (Player) player.get(0);
-        this.player2 = (Player) player.get(1);
+        this.player1 = (PlayerController) player.get(0);
+        this.player2 = (PlayerController) player.get(1);
         this.roundNumber = roundNumber;
         runningRound();
     }
-
+    //==> this can be in the view
     private void runningRound(){
-        Shapes p1option;
-        Shapes p2option;
+        ShapesModel p1option;
+        ShapesModel p2option;
 
         System.out.println("#YOU ARE PLAYING NOW !!!\n" +
                 "#ROUND " + roundNumber + ":\n" +
@@ -50,7 +49,7 @@ public class Round {
         ROCKPAPERSCISSOR(p1option, p2option);
     }
 
-    private void ROCKPAPERSCISSOR(Shapes p1option, Shapes p2option){
+    private void ROCKPAPERSCISSOR(ShapesModel p1option, ShapesModel p2option){
         System.out.println("##READY . . . ?\n" +
                 "#\n" +
                 "#\n");
@@ -94,7 +93,7 @@ public class Round {
 
     }
 
-    private void announceWinnerOfTheRound(Shapes p1, Shapes p2, int winner) {
+    private void announceWinnerOfTheRound(ShapesModel p1, ShapesModel p2, int winner) {
         // # ROCK BEATS SCISSORS 
         //# PLAYER 2 WINS!!!!! P2 HAVE SCORED 1 POINT OUT OF 3.
         if(winner == 1){
@@ -120,7 +119,7 @@ public class Round {
         }
     }
 
-    public Score returnScoreInfo(){
+    public ScoreController returnScoreInfo(){
         return this.score;
         // List<Integer> myList = new ArrayList<>();
         // myList.add(0, p1Score);

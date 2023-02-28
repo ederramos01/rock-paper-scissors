@@ -1,12 +1,15 @@
 package com.rpsgame.app.game.players;
 
+import com.rpsgame.app.game.controller.PlayerController;
+import com.rpsgame.app.game.model.ShapesModel;
+import com.rpsgame.app.game.model.TypePlayerModel;
 import com.rpsgame.app.game.util.Console;
 
-public class HumanPlayer extends Player {
+public class HumanPlayer extends PlayerController {
 
     public HumanPlayer(String name) {
         this.name = name;
-        this.id_typePlayer = TypePlayer.HUMANPLAYER;
+        this.id_typePlayer = TypePlayerModel.HUMANPLAYER;
     }
 
     @Override
@@ -15,18 +18,18 @@ public class HumanPlayer extends Player {
     }
 
     @Override
-    public Shapes chooseAShape() {
+    public ShapesModel chooseAShape() {
         int option = Console.getInt("#SELECT AN OPTION: ");
         return switch (option){
-            case 1 -> Shapes.Rock;
-            case 2 -> Shapes.Scissors;
-            case 3 -> Shapes.Paper;
+            case 1 -> ShapesModel.Rock;
+            case 2 -> ShapesModel.Scissors;
+            case 3 -> ShapesModel.Paper;
             default -> throw new IllegalStateException("Unexpected value: " + option);
         };
     }
     
     @Override
-    public TypePlayer typePlayer() {
+    public TypePlayerModel typePlayer() {
         return this.id_typePlayer;
     }
 }
