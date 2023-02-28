@@ -2,6 +2,7 @@ package com.rpsgame.app.game.controller;
 
 import java.util.ArrayList;
 
+import com.rpsgame.app.game.model.PlayerModel;
 import com.rpsgame.app.game.model.ShapesModel;
 
 public class RoundController {
@@ -107,6 +108,10 @@ public class RoundController {
         if(winner == 3){
             System.out.println("# DRAW . . . " + p1.toString() + " are the same with " + p2.toString());
         }
+        //===>testing models
+        System.out.print('\n');
+        
+        System.out.print('\n');
 
     }
 

@@ -18,7 +18,8 @@ public class HumanPlayerController extends PlayerController {
 
     @Override
     public String getName() {
-        return this.name;
+        // return this.name;
+        return playerModel.getName();
     }
 
     @Override
