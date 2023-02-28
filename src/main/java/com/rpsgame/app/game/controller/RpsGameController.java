@@ -1,15 +1,18 @@
-package com.rpsgame.app.game;
+package com.rpsgame.app.game.controller;
 
 import java.util.ArrayList;
 
-import com.rpsgame.app.game.controller.PlayerController;
-import com.rpsgame.app.game.players.ComputerPlayer;
-import com.rpsgame.app.game.players.HumanPlayer;
+import com.rpsgame.app.game.Match;
+import com.rpsgame.app.game.controller.players.ComputerPlayerController;
+import com.rpsgame.app.game.controller.players.HumanPlayerController;
+import com.rpsgame.app.game.model.MatchModel;
 import com.rpsgame.app.game.util.Console;
 
-public class RpsGame {
+public class RpsGameController {
 
     Match myMatch;
+
+    MatchModel matchModel = new MatchModel();
 
     public void ExecuteGame() {
        
@@ -51,19 +54,23 @@ public class RpsGame {
             case 1 -> {
                 name = Console.getString("Enter a name for player1: ");
                 myPlayers.add(setHumanPlayer(name));
+                //>> analizando esta parte
+                //la relacion se crea en el controller human/pc y el playerModel
+                //al igual en el computer
+                // matchModel.setPlayers(myPlayers);
                 name = Console.getString("Enter a name for player2: ");
                 myPlayers.add(setHumanPlayer(name));
             }
             case 2 -> {
                 name = Console.getString("Enter a name for player1: ");
                 myPlayers.add(setHumanPlayer(name));
-                PlayerController p2 = new ComputerPlayer();
+                PlayerController p2 = new ComputerPlayerController();
                 myPlayers.add(p2);
             }
             case 3 -> {
-                PlayerController p1 = new ComputerPlayer();
+                PlayerController p1 = new ComputerPlayerController();
                 myPlayers.add(p1);
-                PlayerController p2 = new ComputerPlayer();
+                PlayerController p2 = new ComputerPlayerController();
                 myPlayers.add(p2);
             }
         }
@@ -72,7 +79,7 @@ public class RpsGame {
     }
 
     private PlayerController setHumanPlayer(String name) {
-        return new HumanPlayer(name);
+        return new HumanPlayerController(name);
     }
 
     public void exitGame() {

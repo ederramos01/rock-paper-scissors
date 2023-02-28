@@ -5,9 +5,9 @@ import java.util.List;
 
 public class MatchModel {
     
-    public List<PlayerModel> players = new ArrayList<>();
-    public List<ScoreModel> score = new ArrayList<>();
-    public List<RoundModel> round = new ArrayList<>();
+    private List<PlayerModel> players = new ArrayList<>();
+    private List<ScoreModel> score = new ArrayList<>();
+    private List<RoundModel> round = new ArrayList<>();
 
     public List<PlayerModel> getPlayers() {
         return players;

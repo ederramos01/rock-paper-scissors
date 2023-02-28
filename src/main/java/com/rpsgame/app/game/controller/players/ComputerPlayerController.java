@@ -1,25 +1,21 @@
-package com.rpsgame.app.game.players;
+package com.rpsgame.app.game.controller.players;
+
+import java.util.Random;
 
 import com.rpsgame.app.game.controller.PlayerController;
 import com.rpsgame.app.game.model.ShapesModel;
 import com.rpsgame.app.game.model.TypePlayerModel;
-import com.rpsgame.app.game.util.Console;
 
-public class HumanPlayer extends PlayerController {
+public class ComputerPlayerController extends PlayerController {
 
-    public HumanPlayer(String name) {
-        this.name = name;
-        this.id_typePlayer = TypePlayerModel.HUMANPLAYER;
-    }
-
-    @Override
-    public String getName() {
-        return this.name;
+    public ComputerPlayerController() {
+        this.id_typePlayer = TypePlayerModel.IA;
     }
 
     @Override
     public ShapesModel chooseAShape() {
-        int option = Console.getInt("#SELECT AN OPTION: ");
+        Random myRandom = new Random();
+        int option = myRandom.nextInt(3) + 1;
         return switch (option){
             case 1 -> ShapesModel.Rock;
             case 2 -> ShapesModel.Scissors;
@@ -27,9 +23,14 @@ public class HumanPlayer extends PlayerController {
             default -> throw new IllegalStateException("Unexpected value: " + option);
         };
     }
-    
+
     @Override
     public TypePlayerModel typePlayer() {
-        return this.id_typePlayer;
+        return TypePlayerModel.IA;
+    }
+
+    @Override
+    public String getName() {
+        return "Computer Player";
     }
 }

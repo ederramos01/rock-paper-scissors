@@ -1,6 +1,6 @@
 package com.rps.app;
 
-import com.rpsgame.app.game.RpsGame;
+import com.rpsgame.app.game.controller.RpsGameController;
 
 /**
  * Hello world!
@@ -10,7 +10,7 @@ public class App
 {
     public static void main( String[] args )
     {
-        RpsGame rpsGame = new RpsGame();
+        RpsGameController rpsGame = new RpsGameController();
 
         rpsGame.ExecuteGame();
     }
