@@ -1,12 +1,8 @@
-package com.rpsgame.app.game;
+package com.rpsgame.app.game.controller;
 
 import java.util.ArrayList;
 
-import com.rpsgame.app.game.controller.PlayerController;
-import com.rpsgame.app.game.controller.RoundController;
-import com.rpsgame.app.game.controller.ScoreController;
-
-public class Match {
+public class MatchController {
 
     /**
      * esta clase tiene que ejecutar tantas rondas segun la siguiente condicion
@@ -18,7 +14,7 @@ public class Match {
     private ScoreController score;
     private int roundNumber;
 
-    public Match(ArrayList<PlayerController> players) {
+    public MatchController(ArrayList<PlayerController> players) {
         this.score = new ScoreController();
         this.roundNumber = 1;
         this.rounds = new ArrayList<>();

@@ -2,7 +2,7 @@ package com.rpsgame.app.game.controller;
 
 import java.util.ArrayList;
 
-import com.rpsgame.app.game.model.PlayerModel;
+import com.rpsgame.app.game.model.MatchModel;
 import com.rpsgame.app.game.model.ShapesModel;
 
 public class RoundController {
@@ -16,6 +16,7 @@ public class RoundController {
     private PlayerController player1;
     private PlayerController player2;
 
+    MatchModel matchModel = new MatchModel();
 
     public RoundController(ScoreController score, int roundNumber, ArrayList<PlayerController> player){
         this.score = score;
@@ -110,7 +111,7 @@ public class RoundController {
         }
         //===>testing models
         System.out.print('\n');
-        
+        System.out.println(matchModel.getPlayers().toString());
         System.out.print('\n');
 
     }
