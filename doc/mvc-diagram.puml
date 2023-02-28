@@ -1,5 +1,10 @@
 @startuml
 
+class RPSapp {
+    - Match match
+    +RPS
+}
+
 package View{
     class RPSGameView {
         + void rpsGame()
@@ -17,8 +22,8 @@ package View{
         + void runningRound()
     }
 
-    class ScoreView {
-        + void showFinalResults()
+    class PlayerView {
+
     }
 }
 
@@ -80,14 +85,14 @@ package Controller {
         + void updateScoreGame()
     }
 
+    RPSapp *-- RPSGamecontroller
     PlayerController <|-- HumanPlayerController
     PlayerController <|-- ComputerPlayercontroller
     RPSGamecontroller --> MatchController
     MatchController --> RoundController
-    RPSGamecontroller --> PlayerController
     MatchController --> ScoreController
+    PlayerController <-- MatchController
 
-    
 }
 
 package model {
@@ -137,20 +142,12 @@ class TypePlayer {
     Match *-- Score 
 }
 
-PlayerController *--> Player
-MatchController --> Player
-RPSGamecontroller *--> Player
-RPSGamecontroller *--> Match
-RoundController *--> Round
-ScoreController *--> Score
-
-RPSGameView ..> PlayerController
-MatchView ..> MatchController
-
 RPSGameView ..> MatchView
 MatchView ..> RoundView
-MatchView ..> ScoreView
-ScoreView ..> ScoreController
-RoundView ..> RoundController
+MatchView ..> PlayerView
+
+RPSGamecontroller --> RPSGameView
+MatchController --> MatchView
+RPSGamecontroller --> Match
 
 @enduml
