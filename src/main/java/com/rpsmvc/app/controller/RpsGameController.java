@@ -1,11 +1,11 @@
-package com.rpsgame.app.game.controller;
+package com.rpsmvc.app.controller;
 
 import java.util.ArrayList;
 
-import com.rpsgame.app.game.model.MatchModel;
-import com.rpsgame.app.game.model.PlayerModel;
-import com.rpsgame.app.game.view.PlayerView;
-import com.rpsgame.app.game.view.RpsGameView;
+import com.rpsmvc.app.model.MatchModel;
+import com.rpsmvc.app.model.PlayerModel;
+import com.rpsmvc.app.view.PlayerView;
+import com.rpsmvc.app.view.RpsGameView;
 
 public class RpsGameController {
 

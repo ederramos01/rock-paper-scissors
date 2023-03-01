@@ -1,8 +1,8 @@
-package com.rpsgame.app.game.controller;
+package com.rpsmvc.app.controller;
 
-import com.rpsgame.app.game.model.PlayerModel;
-import com.rpsgame.app.game.model.ShapesModel;
-import com.rpsgame.app.game.model.TypePlayerModel;
+import com.rpsmvc.app.model.PlayerModel;
+import com.rpsmvc.app.model.ShapesModel;
+import com.rpsmvc.app.model.TypePlayerModel;
 
 public abstract class PlayerController {
     
