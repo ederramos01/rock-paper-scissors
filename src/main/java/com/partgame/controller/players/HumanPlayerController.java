@@ -1,9 +1,9 @@
-package com.rpsgame.app.game.controller.players;
+package com.partgame.controller.players;
 
-import com.rpsgame.app.game.controller.PlayerController;
-import com.rpsgame.app.game.model.PlayerModel;
-import com.rpsgame.app.game.model.ShapesModel;
-import com.rpsgame.app.game.model.TypePlayerModel;
+import com.partgame.controller.PlayerController;
+import com.partgame.model.PlayerModel;
+import com.partgame.model.ShapesModel;
+import com.partgame.model.TypePlayerModel;
 import com.rpsgame.app.game.util.Console;
 
 public class HumanPlayerController extends PlayerController {
@@ -18,7 +18,8 @@ public class HumanPlayerController extends PlayerController {
 
     @Override
     public String getName() {
-        return this.name;
+        // return this.name;
+        return playerModel.getName();
     }
 
     @Override

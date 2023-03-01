@@ -1,30 +1,37 @@
 package com.rpsgame.app.game.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class MatchModel {
     
-    private List<PlayerModel> players = new ArrayList<>();
-    private List<ScoreModel> score = new ArrayList<>();
-    private List<RoundModel> round = new ArrayList<>();
+    private PlayerModel[] players;
+    private ScoreModel score;
+    private RoundModel round;
 
-    public List<PlayerModel> getPlayers() {
+    public MatchModel() {
+        this.score = new ScoreModel();
+        this.round = new RoundModel();
+    }
+
+    public PlayerModel[] getPlayers() {
         return players;
     }
-    public void setPlayers(List<PlayerModel> players) {
-        this.players = players;
-    }
-    public List<ScoreModel> getScore() {
+
+    public ScoreModel getScore() {
         return score;
     }
-    public void setScore(List<ScoreModel> score) {
-        this.score = score;
-    }
-    public List<RoundModel> getRound() {
+
+    public RoundModel getRound() {
         return round;
     }
-    public void setRound(List<RoundModel> round) {
+
+    public void setPlayers(PlayerModel[] players) {
+        this.players = players;
+    }
+
+    public void setScore(ScoreModel score) {
+        this.score = score;
+    }
+
+    public void setRound(RoundModel round) {
         this.round = round;
     }
 

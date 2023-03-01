@@ -1,10 +1,9 @@
-package com.rpsgame.app.game.controller;
+package com.partgame.controller;
 
 import java.util.ArrayList;
 
-import com.rpsgame.app.game.model.MatchModel;
-import com.rpsgame.app.game.model.ShapesModel;
-import com.rpsgame.app.game.view.RoundView;
+import com.partgame.model.MatchModel;
+import com.partgame.model.ShapesModel;
 
 public class RoundController {
 
@@ -17,13 +16,7 @@ public class RoundController {
     private PlayerController player1;
     private PlayerController player2;
 
-    //==> Primero relacionamos el playerModel que de hecho ya esta
-    //==> Luego de eso la instancia se debe de almacenar en el Match
-
     MatchModel matchModel = new MatchModel();
-    RoundView roundView = new RoundView();
-
-    ArrayList<ShapesModel> arrayShapes = new ArrayList<>();
 
     public RoundController(ScoreController score, int roundNumber, ArrayList<PlayerController> player){
         this.score = score;
@@ -34,12 +27,28 @@ public class RoundController {
     }
     //==> this can be in the view
     private void runningRound(){
+        ShapesModel p1option;
+        ShapesModel p2option;
+
         System.out.println("#YOU ARE PLAYING NOW !!!\n" +
                 "#ROUND " + roundNumber + ":\n" +
                 "#LIVE SCORE: P1 = " + score.getP1Score() + " || P2 = " + score.getP2Score() +
                 "\n#====================================================");
-        arrayShapes = roundView.pickUpAShape(player1, player2);
-        ROCKPAPERSCISSOR(arrayShapes.get(0), arrayShapes.get(1));
+        System.out.println("# P1 SELECT YOUR WEAPON:\n" +
+                "#1. ROCK\n" +
+                "#2. SCISSORS\n" +
+                "#3. PAPER\n" +
+                "#\n");
+
+        p1option = player1.chooseAShape();
+        System.out.println("# P2 SELECT YOUR WEAPON:\n" +
+                "#1. ROCK\n" +
+                "#2. SCISSORS\n" +
+                "#3. PAPER\n" +
+                "#");
+                
+        p2option = player2.chooseAShape();
+        ROCKPAPERSCISSOR(p1option, p2option);
     }
 
     private void ROCKPAPERSCISSOR(ShapesModel p1option, ShapesModel p2option){
@@ -82,6 +91,8 @@ public class RoundController {
             updateScoreGame(1);
             announceWinnerOfTheRound(p1option, p2option, 1);
         }
+
+
     }
 
     private void announceWinnerOfTheRound(ShapesModel p1, ShapesModel p2, int winner) {
@@ -98,6 +109,10 @@ public class RoundController {
         if(winner == 3){
             System.out.println("# DRAW . . . " + p1.toString() + " are the same with " + p2.toString());
         }
+        //===>testing models
+        System.out.print('\n');
+        System.out.println(matchModel.getPlayers().toString());
+        System.out.print('\n');
 
     }
 
