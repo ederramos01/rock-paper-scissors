@@ -1,27 +1,20 @@
 package com.rps.app.view;
 
-import com.rps.app.controller.MatchController;
 import com.rpsgame.app.game.util.Console;
 
 public class MatchView {
 
-    private MatchController matchController;
-
-    public MatchView(MatchController matchController) {
-        this.matchController = matchController;
-    }
-
-    public void displayMatchMenu() {
+    public int displayMatchMenu() {
+        int menuOption = 0;
         System.out.println("# SETUP YOUR GAME BY CHOOSING YOUR PLAYERS:\n" +
-            "#\n" +
-            "#1. HUMAN VS HUMAN\n" +
-            "#2. HUMAN VS PC\n" +
-            "#3. PC VS PC");
+                "#\n" +
+                "#1. HUMAN VS HUMAN\n" +
+                "#2. HUMAN VS PC\n" +
+                "#3. PC VS PC");
+        while (menuOption < 1 || menuOption >= 4) {
             System.out.print("\tYour option: ");
-            int menuOption2 = Console.getInt();
-            matchController.processMatchMenuChoice(menuOption2);
+            menuOption = Console.getInt();
+        }
+        return menuOption;
     }
-
-    //
-    
 }

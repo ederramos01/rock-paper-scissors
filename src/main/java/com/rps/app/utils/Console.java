@@ -7,6 +7,20 @@ public class Console {
     private static Scanner scanner = new Scanner(System.in);
     private final static String FIRST_LINE= "\n";
 
+    public static int getInt(){
+        int responseInt = 0;
+        boolean error = false;
+        do{
+            try {
+                responseInt = scanner.nextInt();
+                error = false;
+            } catch (Exception e) {
+                error = true;
+            }
+        }while(error);
+        return responseInt;
+    }
+
     public static void printTitle(String message) {
         System.out.println(FIRST_LINE);
         printLine("####################################");

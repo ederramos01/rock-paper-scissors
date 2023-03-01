@@ -6,7 +6,7 @@ import com.rpsgame.app.game.Round;
 import com.rpsgame.app.game.Score;
 import com.rpsgame.app.game.players.Player;
 
-public class Match {
+public class MatchModel {
 
     private ArrayList<Round> rounds;
     private Score score;

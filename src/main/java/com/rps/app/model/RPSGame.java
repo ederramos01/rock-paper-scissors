@@ -2,13 +2,14 @@ package com.rps.app.model;
 
 public class RPSGame {
     
-    Match matchModel;
+    // array de matches
+    MatchModel matchModel;
 
     public void newMatch() {
-        this.matchModel = new Match();
+        this.matchModel = new MatchModel();
     }
 
-    public Match getMatch() {
+    public MatchModel getMatch() {
         return this.matchModel;
     }
 }
