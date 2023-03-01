@@ -1,4 +1,4 @@
-package com.rpsgame.app.game.model;
+package com.rpsmvc.app.model;
 
 import java.util.ArrayList;
 import java.util.List;

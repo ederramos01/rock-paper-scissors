@@ -1,4 +1,4 @@
-package com.rpsgame.app.game.util;
+package com.rpsmvc.app.util;
 
 import java.util.Scanner;
 

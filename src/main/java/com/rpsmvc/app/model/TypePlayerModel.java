@@ -1,4 +1,4 @@
-package com.rpsgame.app.game.model;
+package com.rpsmvc.app.model;
 
 public enum TypePlayerModel {
     HUMANPLAYER,

@@ -1,11 +1,11 @@
-package com.rpsgame.app.game.controller.players;
+package com.rpsmvc.app.controller.players;
 
 import java.util.Random;
 
-import com.rpsgame.app.game.controller.PlayerController;
-import com.rpsgame.app.game.model.PlayerModel;
-import com.rpsgame.app.game.model.ShapesModel;
-import com.rpsgame.app.game.model.TypePlayerModel;
+import com.rpsmvc.app.controller.PlayerController;
+import com.rpsmvc.app.model.PlayerModel;
+import com.rpsmvc.app.model.ShapesModel;
+import com.rpsmvc.app.model.TypePlayerModel;
 
 public class ComputerPlayerController extends PlayerController {
 

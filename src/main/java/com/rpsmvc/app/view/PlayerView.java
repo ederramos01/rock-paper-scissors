@@ -1,11 +1,11 @@
-package com.rpsgame.app.game.view;
+package com.rpsmvc.app.view;
 
 import java.util.ArrayList;
 
-import com.rpsgame.app.game.controller.PlayerController;
-import com.rpsgame.app.game.controller.players.ComputerPlayerController;
-import com.rpsgame.app.game.controller.players.HumanPlayerController;
-import com.rpsgame.app.game.util.Console;
+import com.rpsmvc.app.controller.PlayerController;
+import com.rpsmvc.app.controller.players.ComputerPlayerController;
+import com.rpsmvc.app.controller.players.HumanPlayerController;
+import com.rpsmvc.app.util.Console;
 
 public class PlayerView {
     

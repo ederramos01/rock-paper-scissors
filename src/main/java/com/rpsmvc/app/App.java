@@ -1,4 +1,4 @@
-package com.rpsgame.app.game;
+package com.rpsmvc.app;
 
 public class App 
 {

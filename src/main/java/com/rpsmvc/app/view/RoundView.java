@@ -1,9 +1,9 @@
-package com.rpsgame.app.game.view;
+package com.rpsmvc.app.view;
 
 import java.util.ArrayList;
 
-import com.rpsgame.app.game.controller.PlayerController;
-import com.rpsgame.app.game.model.ShapesModel;
+import com.rpsmvc.app.controller.PlayerController;
+import com.rpsmvc.app.model.ShapesModel;
 
 public class RoundView {
     

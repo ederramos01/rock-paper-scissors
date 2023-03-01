@@ -1,6 +1,6 @@
-package com.rpsgame.app.game;
+package com.rpsmvc.app;
 
-import com.rpsgame.app.game.controller.RpsGameController;
+import com.rpsmvc.app.controller.RpsGameController;
 
 public class RPSGameApp {
     private RpsGameController rpsGameController;

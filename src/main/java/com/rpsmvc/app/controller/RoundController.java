@@ -1,10 +1,10 @@
-package com.rpsgame.app.game.controller;
+package com.rpsmvc.app.controller;
 
 import java.util.ArrayList;
 
-import com.rpsgame.app.game.model.MatchModel;
-import com.rpsgame.app.game.model.ShapesModel;
-import com.rpsgame.app.game.view.RoundView;
+import com.rpsmvc.app.model.MatchModel;
+import com.rpsmvc.app.model.ShapesModel;
+import com.rpsmvc.app.view.RoundView;
 
 public class RoundController {
 

@@ -1,4 +1,4 @@
-package com.rpsgame.app.game.controller;
+package com.rpsmvc.app.controller;
 
 import java.util.ArrayList;
 

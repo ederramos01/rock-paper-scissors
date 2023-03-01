@@ -1,6 +1,6 @@
-package com.rpsgame.app.game.view;
+package com.rpsmvc.app.view;
 
-import com.rpsgame.app.game.util.Console;
+import com.rpsmvc.app.util.Console;
 
 public class RpsGameView {
     

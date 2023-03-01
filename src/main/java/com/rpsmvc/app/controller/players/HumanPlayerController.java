@@ -1,10 +1,10 @@
-package com.rpsgame.app.game.controller.players;
+package com.rpsmvc.app.controller.players;
 
-import com.rpsgame.app.game.controller.PlayerController;
-import com.rpsgame.app.game.model.PlayerModel;
-import com.rpsgame.app.game.model.ShapesModel;
-import com.rpsgame.app.game.model.TypePlayerModel;
-import com.rpsgame.app.game.util.Console;
+import com.rpsmvc.app.controller.PlayerController;
+import com.rpsmvc.app.model.PlayerModel;
+import com.rpsmvc.app.model.ShapesModel;
+import com.rpsmvc.app.model.TypePlayerModel;
+import com.rpsmvc.app.util.Console;
 
 public class HumanPlayerController extends PlayerController {
 
