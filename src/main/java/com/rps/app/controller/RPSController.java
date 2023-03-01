@@ -1,7 +1,10 @@
 package com.rps.app.controller;
 
+import com.rps.app.controller.player.ComputerPlayerController;
+import com.rps.app.controller.player.HumanPlayerController;
 import com.rps.app.controller.player.PlayerController;
 import com.rps.app.model.MatchModel;
+import com.rps.app.model.player.PlayerModel;
 import com.rps.app.view.MatchView;
 import com.rps.app.view.RPSGameView;
 
@@ -11,14 +14,13 @@ public class RPSController {
     private RPSGameView rpsGameView;
     private MatchController matchController;
     private PlayerController[] playersController;
-
+    private RoundController roundController;
+    private ScoreController scoreController;
 
     public RPSController(MatchModel matchModel) {
         this.matchModel = matchModel;
         this.rpsGameView = new RPSGameView();
-        //aqui se crean los controllers restantes
         this.matchController = new MatchController();
-        
     }
 
     public void play() {
@@ -36,25 +38,29 @@ public class RPSController {
         //1. proceder a crear a los jugadores
         switch(flagOption) {
             case 1 -> {
-                
+                playersController[0] = new HumanPlayerController();
+                playersController[1] = new HumanPlayerController();
             }
-            case 2 -> {}
-            case 3 -> {}
+            case 2 -> {
+                playersController[0] = new HumanPlayerController();
+                playersController[1] = new ComputerPlayerController();
+            }
+            case 3 -> {
+                playersController[0] = new ComputerPlayerController();
+                playersController[1] = new ComputerPlayerController();
+            }
         }
-
-        //instanciar controladores de tipos de jugadores y dentro de ellos crear los jugadores y guardar modelos
-        //2. insertar esoso modelos de jugadores al modelo Match
-        
-        // crear new Match cuando ya tenga los jugadores creados
-        //myMatch = createMatch(createPlayers(flagOption));
+        matchModel.newMatch(new PlayerModel[]{playersController[0].getPlayer(), playersController[1].getPlayer()});
     }
 
     public void initGame(){
+        // comienzo el juego; comienzo a ejecutar la primera ronda;
+
 
     }
 
-    public MatchController createMatch(ArrayList<PlayerController> players){
-        System.out.println("Match created");
-        return new MatchController(players);
-    }
+    // public MatchController createMatch(ArrayList<PlayerController> players){
+    //     System.out.println("Match created");
+    //     return new MatchController(players);
+    // }
 }

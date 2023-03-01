@@ -21,6 +21,21 @@ public class Console {
         return responseInt;
     }
 
+    public static int getInt(String message) {
+        int responseInt = 0;
+        boolean error = false;
+        do{
+            try {
+                System.out.println(message);
+                responseInt = scanner.nextInt();
+                error = false;
+            } catch (Exception e){
+                error = true;
+            }
+        } while(error);
+        return responseInt;
+    }
+
     public static void printTitle(String message) {
         System.out.println(FIRST_LINE);
         printLine("####################################");

@@ -1,6 +1,6 @@
 package com.rps.app.model;
 
-public class Score {
+public class ScoreModel {
     
     private int p1Score;
     private int p2Score;

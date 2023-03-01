@@ -1,6 +1,9 @@
 package com.rps.app.view.player;
 
+import java.util.Random;
+
 import com.rps.app.utils.Console;
+import com.rps.app.utils.Shape;
 
 public class ComputerPlayerView extends PlayerView{
 
@@ -39,6 +42,18 @@ public class ComputerPlayerView extends PlayerView{
         }
 
         return sb.toString();
+    }
+
+    @Override
+    public Shape selectShape() {
+        Random myRandom = new Random();
+        int option = myRandom.nextInt(3) + 1;
+        return switch (option){
+            case 1 -> Shape.Rock;
+            case 2 -> Shape.Scissors;
+            case 3 -> Shape.Paper;
+            default -> throw new IllegalStateException("Unexpected value: " + option);
+        };
     }
     
 }

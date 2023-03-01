@@ -8,6 +8,10 @@ public class PlayerModel {
     public PlayerModel(String name) {
         this.name = name;
     }
+
+    public void setPlayerType(PlayerType playerType) {
+        this.playerType = playerType;
+    }
     
     public String getName() {
         return name;
@@ -15,10 +19,6 @@ public class PlayerModel {
 
     public PlayerType getPlayerType() {
         return playerType;
-    }
-
-    public void setPlayerType(PlayerType playerType) {
-        this.playerType = playerType;
     }
 
     @Override
