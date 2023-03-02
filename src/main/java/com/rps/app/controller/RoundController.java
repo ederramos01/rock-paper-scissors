@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.rps.app.controller.player.PlayerController;
+import com.rps.app.model.MatchModel;
 import com.rps.app.model.RoundModel;
 import com.rps.app.model.ScoreModel;
+import com.rps.app.model.player.PlayerModel;
 import com.rps.app.utils.Shape;
 import com.rps.app.view.RoundView;
 
@@ -36,7 +38,19 @@ public class RoundController {
             int currentRound = score.getRoundNumber();
             RoundModel round = new RoundModel(currentRound);
             runningRound(round);
+        } else {
+            getLastWinner();
         }
+    }
+
+    public PlayerModel getLastWinner() {
+        if(score.getP1Score() == 3) {
+            return playersController[0].getPlayer();
+        }
+        if(score.getP2Score() == 3) {
+            return playersController[1].getPlayer();
+        }
+        return null;
     }
 
     public void runningRound(RoundModel round) {

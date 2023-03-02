@@ -61,6 +61,7 @@ public class RPSController {
 
     public void initGame(){
         roundController.executeRounds();
+        matchModel.setWinner(roundController.getLastWinner());
     }
 
     public void announceWinnerOfTheMatch() {
@@ -68,6 +69,6 @@ public class RPSController {
         // se puede conocer por el modelo general de MatchModel
         // debo buscar de donde extraer el jugador ganador
         //roundController.getWinnerOfTheMatch();
-        matchController.announceWinnerOfTheMatch();
+        matchController.announceWinnerOfTheMatch(matchModel.getWinner());
     }
 }

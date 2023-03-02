@@ -1,5 +1,6 @@
 package com.rps.app.controller;
 
+import com.rps.app.model.player.PlayerModel;
 import com.rps.app.view.MatchView;
 
 public class MatchController {
@@ -17,7 +18,7 @@ public class MatchController {
     }
 
     //pasar por parametro el controller del jugador ganador
-    public void announceWinnerOfTheMatch() {
-        matchview.announceWinnerOfTheMatch();
+    public void announceWinnerOfTheMatch(PlayerModel winner) {
+        matchview.announceWinnerOfTheMatch(winner);
     }
 }
