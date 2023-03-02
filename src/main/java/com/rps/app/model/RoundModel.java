@@ -1,38 +1,23 @@
 package com.rps.app.model;
 
+import com.rps.app.model.player.PlayerModel;
 import com.rps.app.utils.Shape;
-import com.rpsgame.app.game.Score;
 
 public class RoundModel {
 
     private int roundNumber;
-    private Score score;
+    //private ArrayList<Shapes> shapesList;
     private Shape player1Shape;
     private Shape player2Shape;
+    private PlayerModel winner;
 
-    public RoundModel(Score score, int roundNumber) {
-        this.score = score;
-        this.roundNumber = roundNumber;
+
+    public RoundModel(int currentRound) {
+        this.roundNumber = currentRound;
     }
 
     public int getRoundNumber() {
         return roundNumber;
-    }
-
-    public void setRoundNumber(int roundNumber) {
-        this.roundNumber = roundNumber;
-    }
-
-    public Score getScore() {
-        return score;
-    }
-
-    public void setP1Score() {
-        score.updateP1Score();
-    }
-
-    public void setP2Score() {
-        score.updateP2Score();
     }
 
     public Shape getPlayer1Shape() {
@@ -50,4 +35,13 @@ public class RoundModel {
     public void setPlayer2Shape(Shape player2) {
         this.player2Shape = player2;
     }
+
+    public PlayerModel getWinner() {
+        return winner;
+    }
+
+    public void setWinnerOfThisRound(PlayerModel winner) {
+        this.winner = winner;
+    }
+    
 }
