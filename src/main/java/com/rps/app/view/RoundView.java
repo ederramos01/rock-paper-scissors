@@ -38,20 +38,16 @@ public class RoundView {
     }
 
     public void announceWinnerView(List<Shape> playerShapes, int winner, PlayerController[] playersController, List<Integer> score) {
-
         if(winner == 0){
             System.out.println("# " + playerShapes.get(0) + " BEATS " + playerShapes.get(1));
             System.out.println("# " + playersController[0].getName() + " WINS!!!!!  HAVE SCORED " +  score.get(0) + " POINT OUT OF 3.");
         }
-
         if(winner == 1){
             System.out.println("# " + playerShapes.get(1) + " BEATS " + playerShapes.get(0));
             System.out.println("# " + playersController[1].getName() + " WINS!!!!!  HAVE SCORED " +  score.get(1) + " POINT OUT OF 3.");
         }
-
         if(winner == 2){
             System.out.println("# DRAW . . . " + playerShapes.get(0) + " are the same with " + playerShapes.get(1));
         }
     }
-
 }

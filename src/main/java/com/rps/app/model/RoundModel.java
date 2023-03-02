@@ -6,14 +6,15 @@ import com.rps.app.utils.Shape;
 public class RoundModel {
 
     private int roundNumber;
-    //private ArrayList<Shapes> shapesList;
     private Shape player1Shape;
     private Shape player2Shape;
     private PlayerModel winner;
+    private boolean isTie;
 
 
     public RoundModel(int currentRound) {
         this.roundNumber = currentRound;
+        this.isTie = false;
     }
 
     public int getRoundNumber() {
@@ -43,4 +44,9 @@ public class RoundModel {
     public void setWinnerOfThisRound(PlayerModel winner) {
         this.winner = winner;
     }
+
+    public void isATie() {
+        isTie = true;
+    }
+
 }

@@ -32,10 +32,6 @@ public class RoundController {
         // return;
         // }
         if (score.getP1Score() < 3 && score.getP2Score() < 3) {
-            // filtrar la primera ronda
-            // if (score.getRoundNumber() != 0 ) {
-                
-            // }
             score.updateRoundNumber();
             int currentRound = score.getRoundNumber();
             RoundModel round = new RoundModel(currentRound);
@@ -45,15 +41,14 @@ public class RoundController {
 
     public void runningRound(RoundModel round) {
         ArrayList<Shape> shapesList = new ArrayList<>();
-        // int[] scores = new int[2];
-        // scores[0] = score.getP1Score();
-        // scores[1] = score.getP2Score();
         shapesList = roundView.pickUpAShape(playersController, round.getRoundNumber(), score.getScoreList());
         round.setPlayer1Shape(shapesList.get(0));
         round.setPlayer2Shape(shapesList.get(1));
         int winner = ROCKPAPERSCISSOR(shapesList);
         if(winner >= 0  && winner < 2 ){
             round.setWinnerOfThisRound(playersController[winner].getPlayer());
+        } else{
+            round.isATie();
         }
         announceWinnerOfTheRound(shapesList, winner, playersController, score.getScoreList());
     }
@@ -64,11 +59,11 @@ public class RoundController {
                 "#\n" +
                 "#\n");
         if ((playerShapes.get(0) == Shape.Paper && playerShapes.get(1) == Shape.Rock)) {
-            updateScoreGame(0); // si es 1 gana p1
+            updateScoreGame(0);
             return 0;
         }
         if ((playerShapes.get(0) == Shape.Paper && playerShapes.get(1) == Shape.Scissors)) {
-            updateScoreGame(1); // si es 2 gana p2
+            updateScoreGame(1);
             return 1;
         }
         if ((playerShapes.get(0) == Shape.Paper && playerShapes.get(1) == Shape.Paper)) {
@@ -110,8 +105,6 @@ public class RoundController {
     private void updateScoreGame(int assingPoint) {
         if (assingPoint == 0) {
             score.updateP1Score();
-            //revisar que el que llegue a 3 puntos primero asignarle el ganador del match con un metodo 
-            // debemos acceder al modelo general para poder asignar ahi el PlayerModel winner
         }
         if (assingPoint == 1) {
             score.updateP2Score();

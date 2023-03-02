@@ -14,7 +14,6 @@ public class RPSController {
     private MatchController matchController;
     private PlayerController[] playersController;
     private RoundController roundController;
-    // private ScoreController scoreController;
 
     public RPSController(MatchModel matchModel) {
         this.matchModel = matchModel;
@@ -36,7 +35,7 @@ public class RPSController {
 
     public void setupGame() {
         int flagOption = matchController.showMatchMenu();
-        //1. proceder a crear a los jugadores
+
         switch(flagOption) {
             case 1 -> {
                 playersController[0] = new HumanPlayerController();
@@ -55,19 +54,11 @@ public class RPSController {
         playersController[0].getNewGamePlayer();
         playersController[1].getNewGamePlayer();
         matchModel.newMatch(new PlayerModel[]{playersController[0].getPlayer(), playersController[1].getPlayer()});
-        // intruduce modelo score pre-existente al roundController
         roundController.setScore(matchModel.getScore());
-        // intruduce a los jugadores
         roundController.setPlayerController(playersController);
-       
-        // roundController ya conoce su score y los controladores de sus jugadores, ahora debe tener un modelo de Round
-        // por cada ronda que el roundController ejecute e ir agregando ese round a la lista rounds del MatchModel
-        //roundController.setRoundsList(matchModel.getRoundsList());
-        
     }
 
     public void initGame(){
-        // comienzo el juego; comienzo a ejecutar la primera ronda o el conjunto de rondas;
         roundController.executeRounds();
     }
 
