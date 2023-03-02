@@ -17,4 +17,9 @@ public class MatchView {
         }
         return menuOption;
     }
+
+    //pasar por parametro el controller del jugador ganador
+    public void announceWinnerOfTheMatch() {
+        System.out.println("....");
+    }
 }

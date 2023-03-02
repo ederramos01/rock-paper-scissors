@@ -16,6 +16,6 @@ public class RockScissorsPaperApp {
     public void runGame() {
         rpsController.play();
         rpsController.initGame();
-        rpsController.showResults();
+        //rpsController.showResults();
     }
 }

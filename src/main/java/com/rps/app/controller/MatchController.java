@@ -15,4 +15,9 @@ public class MatchController {
     public int showMatchMenu() {
         return matchview.displayMatchMenu();
     }
+
+    //pasar por parametro el controller del jugador ganador
+    public void announceWinnerOfTheMatch() {
+        matchview.announceWinnerOfTheMatch();
+    }
 }

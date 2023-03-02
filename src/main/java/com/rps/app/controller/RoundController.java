@@ -1,6 +1,7 @@
 package com.rps.app.controller;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.rps.app.controller.player.PlayerController;
 import com.rps.app.model.RoundModel;
@@ -10,88 +11,109 @@ import com.rps.app.view.RoundView;
 
 public class RoundController {
 
-    private int roundNumber = 0; //numero de rondas
     private PlayerController[] playersController;
-    private ScoreModel scoreModel;
-    private ArrayList<RoundModel> roundModel;
-    private RoundView roundView = new RoundView();
+    private ScoreModel score;
+    private RoundView roundView;
 
-    private ArrayList<Shape> arrayOptions = new ArrayList<>();
+    public RoundController() {
+        roundView = new RoundView();
+    }
 
+    public void setScore(ScoreModel scoreModel) {
+        this.score = scoreModel;
+    }
 
-	public void setPlayerController(PlayerController[] playersController) {
+    public void setPlayerController(PlayerController[] playersController) {
         this.playersController = playersController;
-	}
-    //no se ha ingresado ningun metodo que ingrese la ronda
-    public void setRound(ArrayList<RoundModel> roundsList) {
-        this.roundModel = roundsList;
     }
 
-    public void setScore(ScoreModel score) {
-        this.scoreModel = score;
+    public void executeRounds() {
+        // if(score == null && playersController == null){
+        // return;
+        // }
+        if (score.getP1Score() < 3 || score.getP2Score() < 3) {
+            // filtrar la primera ronda
+            if (score.getRoundNumber() != 0) {
+                score.updateRoundNumber();
+            }
+            int currentRound = score.getRoundNumber();
+            RoundModel round = new RoundModel(currentRound);
+            runningRound(round);
+        }
     }
 
-    public void runningRound() {
-        arrayOptions = roundView.pickUpAShape(playersController[0], playersController[1]);
-        ROCKPAPERSCISSOR(arrayOptions.get(0), arrayOptions.get(1));
+    public void runningRound(RoundModel round) {
+        ArrayList<Shape> shapesList = new ArrayList<>();
+        int[] scores = new int[2];
+        scores[0] = score.getP1Score();
+        scores[1] = score.getP2Score();
+        shapesList = roundView.pickUpAShape(playersController, round.getRoundNumber(), scores);
+        round.setPlayer1Shape(shapesList.get(0));
+        round.setPlayer2Shape(shapesList.get(1));
+        int winner = ROCKPAPERSCISSOR(shapesList);
+        if(winner >= 0  || winner < 2 ){
+            round.setWinnerOfThisRound(playersController[winner].getPlayer());
+        }
+        announceWinnerOfTheRound(shapesList, winner, playersController, scores);
     }
+
     
-    private void ROCKPAPERSCISSOR(Shape p1option, Shape p2option){
+    private int ROCKPAPERSCISSOR(List<Shape> playerShapes) {
         System.out.println("##READY . . . ?\n" +
                 "#\n" +
                 "#\n");
-        if( (p1option.toString() == "Paper" && p2option.toString()== "Rock") ){
-            updateScoreGame(1); //si es 1 gana p1
-            announceWinnerOfTheRound(p1option, p2option, 1);
+        if ((playerShapes.get(0) == Shape.Paper && playerShapes.get(1) == Shape.Rock)) {
+            updateScoreGame(0); // si es 1 gana p1
+            return 0;
         }
-        if( (p1option.toString() == "Paper" && p2option.toString()== "Scissors") ){
-            updateScoreGame(2); //si es 2 gana p2
-            announceWinnerOfTheRound(p1option, p2option, 2);
+        if ((playerShapes.get(0) == Shape.Paper && playerShapes.get(1) == Shape.Scissors)) {
+            updateScoreGame(1); // si es 2 gana p2
+            return 1;
         }
-        if( (p1option.toString() == "Paper" && p2option.toString()== "Paper") ){
-            updateScoreGame(3);
-            announceWinnerOfTheRound(p1option, p2option, 3);
-        }
-        if( (p1option.toString() == "Rock" && p2option.toString()== "Rock") ){
-            updateScoreGame(3);
-            announceWinnerOfTheRound(p1option, p2option,3);
-        }
-        if( (p1option.toString() == "Rock" && p2option.toString()== "Scissors") ){
-            updateScoreGame(1);
-            announceWinnerOfTheRound(p1option, p2option, 1);
-        }
-        if( (p1option.toString() == "Rock" && p2option.toString()== "Paper") ){
+        if ((playerShapes.get(0) == Shape.Paper && playerShapes.get(1) == Shape.Paper)) {
             updateScoreGame(2);
-            announceWinnerOfTheRound(p1option, p2option, 2);
+            return 2;
         }
-        if( (p1option.toString() == "Scissors" && p2option.toString()== "Rock") ){
-            updateScoreGame(2);   
-            announceWinnerOfTheRound(p1option, p2option, 2); 
+        if ((playerShapes.get(0) == Shape.Rock && playerShapes.get(1) == Shape.Rock)) {
+            updateScoreGame(2);
+            return 2;
         }
-        if( (p1option.toString() == "Scissors" && p2option.toString()== "Scissors") ){
-            updateScoreGame(3);
-            announceWinnerOfTheRound(p1option, p2option, 3);
+        if ((playerShapes.get(0) == Shape.Rock && playerShapes.get(1) == Shape.Scissors)) {
+            updateScoreGame(0);
+            return 0;
         }
-        if( (p1option.toString() == "Scissors" && p2option.toString()== "Paper") ){
+        if ((playerShapes.get(0) == Shape.Rock && playerShapes.get(1) == Shape.Paper)) {
             updateScoreGame(1);
-            announceWinnerOfTheRound(p1option, p2option, 1);
+            return 1;
         }
+        if ((playerShapes.get(0) == Shape.Scissors && playerShapes.get(1) == Shape.Rock)) {
+            updateScoreGame(1);
+            return 1;
+        }
+        if ((playerShapes.get(0) == Shape.Scissors && playerShapes.get(1) == Shape.Scissors)) {
+            updateScoreGame(2);
+            return 2;
+        }
+        if ((playerShapes.get(0) == Shape.Scissors && playerShapes.get(1) == Shape.Paper)) {
+            updateScoreGame(0);
+            return 0;
+        }
+        return 0;
     }
 
-    private void announceWinnerOfTheRound(Shape p1, Shape p2, int winner) {
-        
-        roundView.announceWinnerView(p1, p2, winner, playersController, scoreModel);
-        
+    private void announceWinnerOfTheRound(List<Shape> playerShapes, int winner, PlayerController[] playersController, int[] score) {
+        roundView.announceWinnerView(playerShapes, winner, playersController, score);
+        executeRounds();
     }
 
-    private void updateScoreGame(int assingPoint){
-        roundNumber++;
-        if(assingPoint == 1){
-            scoreModel.updateP1Score();
+    private void updateScoreGame(int assingPoint) {
+        if (assingPoint == 0) {
+            score.updateP1Score();
+            //revisar que el que llegue a 3 puntos primero asignarle el ganador del match con un metodo 
+            // debemos acceder al modelo general para poder asignar ahi el PlayerModel winner
         }
-        if(assingPoint == 2){
-            scoreModel.updateP2Score();
+        if (assingPoint == 1) {
+            score.updateP2Score();
         }
     }
-
 }
