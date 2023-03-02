@@ -6,9 +6,10 @@ import com.rpsgame.app.game.players.Player;
 import com.rpsgame.app.game.players.Shapes;
 
 public class Round {
-
+    //Variables ya desclaradas
     private int roundNumber;
     private Score score;
+    //esto esta homologado con un array de PlayerController
     private Player player1;
     private Player player2;
 

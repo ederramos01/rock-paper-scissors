@@ -13,8 +13,8 @@ public class MatchModel {
 
     public void newMatch(PlayerModel[] players) {
         this.players = players;
-        this.score = new ScoreModel();
         this.rounds = new ArrayList<>();
+        this.score = new ScoreModel();
     }
 
     public ScoreModel getScore() {

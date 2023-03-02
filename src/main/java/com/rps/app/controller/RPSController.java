@@ -15,12 +15,13 @@ public class RPSController {
     private MatchController matchController;
     private PlayerController[] playersController;
     private RoundController roundController;
-    private ScoreController scoreController;
+    // private ScoreController scoreController;
 
     public RPSController(MatchModel matchModel) {
         this.matchModel = matchModel;
         this.rpsGameView = new RPSGameView();
         this.matchController = new MatchController();
+        this.roundController = new RoundController();
     }
 
     public void play() {
@@ -51,12 +52,19 @@ public class RPSController {
             }
         }
         matchModel.newMatch(new PlayerModel[]{playersController[0].getPlayer(), playersController[1].getPlayer()});
+        //Se setean los jugadores para las shapes, score, el winner
+        roundController.setPlayerController(playersController);
+        //Se setean un arraylist de rondas de RoundModel Not completed
+        roundController.setRound(matchModel.getRoundsList());
+        //Se setean el score con el ScoreModel
+        roundController.setScore(matchModel.getScore());
     }
 
     public void initGame(){
         // comienzo el juego; comienzo a ejecutar la primera ronda;
+        roundController.runningRound();
 
-
+        //Implementar la segunda y tercera logica
     }
 
     // public MatchController createMatch(ArrayList<PlayerController> players){
