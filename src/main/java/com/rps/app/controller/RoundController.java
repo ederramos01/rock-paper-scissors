@@ -31,11 +31,12 @@ public class RoundController {
         // if(score == null && playersController == null){
         // return;
         // }
-        if (score.getP1Score() < 3 || score.getP2Score() < 3) {
+        if (score.getP1Score() < 3 && score.getP2Score() < 3) {
             // filtrar la primera ronda
-            if (score.getRoundNumber() != 0) {
-                score.updateRoundNumber();
-            }
+            // if (score.getRoundNumber() != 0 ) {
+                
+            // }
+            score.updateRoundNumber();
             int currentRound = score.getRoundNumber();
             RoundModel round = new RoundModel(currentRound);
             runningRound(round);
@@ -44,17 +45,17 @@ public class RoundController {
 
     public void runningRound(RoundModel round) {
         ArrayList<Shape> shapesList = new ArrayList<>();
-        int[] scores = new int[2];
-        scores[0] = score.getP1Score();
-        scores[1] = score.getP2Score();
-        shapesList = roundView.pickUpAShape(playersController, round.getRoundNumber(), scores);
+        // int[] scores = new int[2];
+        // scores[0] = score.getP1Score();
+        // scores[1] = score.getP2Score();
+        shapesList = roundView.pickUpAShape(playersController, round.getRoundNumber(), score.getScoreList());
         round.setPlayer1Shape(shapesList.get(0));
         round.setPlayer2Shape(shapesList.get(1));
         int winner = ROCKPAPERSCISSOR(shapesList);
-        if(winner >= 0  || winner < 2 ){
+        if(winner >= 0  && winner < 2 ){
             round.setWinnerOfThisRound(playersController[winner].getPlayer());
         }
-        announceWinnerOfTheRound(shapesList, winner, playersController, scores);
+        announceWinnerOfTheRound(shapesList, winner, playersController, score.getScoreList());
     }
 
     
@@ -101,7 +102,7 @@ public class RoundController {
         return 0;
     }
 
-    private void announceWinnerOfTheRound(List<Shape> playerShapes, int winner, PlayerController[] playersController, int[] score) {
+    private void announceWinnerOfTheRound(List<Shape> playerShapes, int winner, PlayerController[] playersController, List<Integer> score) {
         roundView.announceWinnerView(playerShapes, winner, playersController, score);
         executeRounds();
     }

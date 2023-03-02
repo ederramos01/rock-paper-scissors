@@ -5,7 +5,6 @@ import com.rps.app.controller.player.HumanPlayerController;
 import com.rps.app.controller.player.PlayerController;
 import com.rps.app.model.MatchModel;
 import com.rps.app.model.player.PlayerModel;
-import com.rps.app.view.MatchView;
 import com.rps.app.view.RPSGameView;
 
 public class RPSController {
@@ -53,6 +52,8 @@ public class RPSController {
             }
         }
 
+        playersController[0].getNewGamePlayer();
+        playersController[1].getNewGamePlayer();
         matchModel.newMatch(new PlayerModel[]{playersController[0].getPlayer(), playersController[1].getPlayer()});
         // intruduce modelo score pre-existente al roundController
         roundController.setScore(matchModel.getScore());

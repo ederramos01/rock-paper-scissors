@@ -5,7 +5,7 @@ public class RPSGame {
     // array de matches
     MatchModel matchModel;
 
-    public void newMatch() {
+    public RPSGame() {
         this.matchModel = new MatchModel();
     }
 
