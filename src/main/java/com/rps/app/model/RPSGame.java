@@ -8,9 +8,6 @@ public class RPSGame {
         this.matchModel = new MatchModel();
     }
 
-    public void newMatch() {
-    }
-
     public MatchModel getMatch() {
         return this.matchModel;
     }

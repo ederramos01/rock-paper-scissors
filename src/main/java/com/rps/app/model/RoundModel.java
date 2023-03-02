@@ -43,5 +43,4 @@ public class RoundModel {
     public void setWinnerOfThisRound(PlayerModel winner) {
         this.winner = winner;
     }
-    
 }

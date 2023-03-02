@@ -8,14 +8,14 @@ import com.rps.app.utils.Shape;
 
 public class RoundView {
 
-    public ArrayList<Shape> pickUpAShape(PlayerController[] playersController, int round, int[] score) {
+    public ArrayList<Shape> pickUpAShape(PlayerController[] playersController, int round, List<Integer> score) {
         Shape p1option;
         Shape p2option;
         ArrayList<Shape> shapesList = new ArrayList<>();
 
         System.out.println("#YOU ARE PLAYING NOW !!!\n" +
                 "#ROUND " + round + ":\n" +
-                "#LIVE SCORE: P1 = " + score[0] + " || P2 = " + score[1] +
+                "#LIVE SCORE: P1 = " + score.get(0) + " || P2 = " + score.get(1) +
                 "\n#====================================================");
         
                 System.out.println("# P1 SELECT YOUR WEAPON:\n" +
@@ -37,16 +37,16 @@ public class RoundView {
         return shapesList;
     }
 
-    public void announceWinnerView(List<Shape> playerShapes, int winner, PlayerController[] playersController, int[] score) {
+    public void announceWinnerView(List<Shape> playerShapes, int winner, PlayerController[] playersController, List<Integer> score) {
 
         if(winner == 0){
             System.out.println("# " + playerShapes.get(0) + " BEATS " + playerShapes.get(1));
-            System.out.println("# " + playersController[0].getName() + " WINS!!!!!  HAVE SCORED " + score[0] + " POINT OUT OF 3.");
+            System.out.println("# " + playersController[0].getName() + " WINS!!!!!  HAVE SCORED " +  score.get(0) + " POINT OUT OF 3.");
         }
 
         if(winner == 1){
             System.out.println("# " + playerShapes.get(1) + " BEATS " + playerShapes.get(0));
-            System.out.println("# " + playersController[1].getName() + " WINS!!!!!  HAVE SCORED " + score[1] + " POINT OUT OF 3.");
+            System.out.println("# " + playersController[1].getName() + " WINS!!!!!  HAVE SCORED " +  score.get(1) + " POINT OUT OF 3.");
         }
 
         if(winner == 2){
