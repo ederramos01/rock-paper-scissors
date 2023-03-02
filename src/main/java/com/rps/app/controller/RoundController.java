@@ -31,7 +31,7 @@ public class RoundController {
         // if(score == null && playersController == null){
         // return;
         // }
-        if (score.getP1Score() < 3 || score.getP2Score() < 3) {
+        if (score.getP1Score() < 3 && score.getP2Score() < 3) {
             // filtrar la primera ronda
             if (score.getRoundNumber() != 0) {
                 score.updateRoundNumber();

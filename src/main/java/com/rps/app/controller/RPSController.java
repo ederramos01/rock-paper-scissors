@@ -5,7 +5,6 @@ import com.rps.app.controller.player.HumanPlayerController;
 import com.rps.app.controller.player.PlayerController;
 import com.rps.app.model.MatchModel;
 import com.rps.app.model.player.PlayerModel;
-import com.rps.app.view.MatchView;
 import com.rps.app.view.RPSGameView;
 
 public class RPSController {
@@ -40,6 +39,7 @@ public class RPSController {
         //1. proceder a crear a los jugadores
         switch(flagOption) {
             case 1 -> {
+                System.out.println("option recibida " + flagOption);
                 playersController[0] = new HumanPlayerController();
                 playersController[1] = new HumanPlayerController();
             }

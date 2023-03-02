@@ -7,6 +7,10 @@ import com.rps.app.view.player.PlayerView;
 
 public class HumanPlayerController extends PlayerController{
 
+    // public HumanPlayerController() {
+    //     super();   
+    // }
+
     @Override
     protected PlayerView initPlayerView() {
         return new HumanPlayerView();
