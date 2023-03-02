@@ -1,8 +1,7 @@
 package com.rps.app.view;
 
-import com.rps.app.model.MatchModel;
 import com.rps.app.model.player.PlayerModel;
-import com.rpsgame.app.game.util.Console;
+import com.rps.app.utils.Console;
 
 public class MatchView {
 
@@ -20,7 +19,6 @@ public class MatchView {
         return menuOption;
     }
 
-    //pasar por parametro el controller del jugador ganador
     public void announceWinnerOfTheMatch(PlayerModel winner) {
         System.out.println("KUDOS!! THE WINNER IS: " + winner.getName());
     }
