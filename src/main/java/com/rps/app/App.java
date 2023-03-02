@@ -6,7 +6,5 @@ public class App {
 
         new RockScissorsPaperApp().runGame();
 
-        // Controller mainController = new Controller();
-        // mainController.ExecuteGame();
     }
 }
