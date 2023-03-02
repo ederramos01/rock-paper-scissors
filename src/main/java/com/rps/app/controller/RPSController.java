@@ -20,6 +20,7 @@ public class RPSController {
     public RPSController(MatchModel matchModel) {
         this.matchModel = matchModel;
         this.rpsGameView = new RPSGameView();
+        this.playersController = new PlayerController[2];
         this.matchController = new MatchController();
         this.roundController = new RoundController();
     }

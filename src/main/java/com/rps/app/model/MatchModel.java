@@ -13,7 +13,7 @@ public class MatchModel {
     private PlayerModel winner;
 
     public void newMatch(PlayerModel[] players) {
-        this.players = players;
+        this.players = new PlayerModel[2];
         this.rounds = new ArrayList<>();
         this.score = new ScoreModel();
     }
