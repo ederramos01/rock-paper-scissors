@@ -33,6 +33,7 @@ public class RoundController {
 
     public void runningRound() {
         arrayOptions = roundView.pickUpAShape(playersController[0], playersController[1]);
+        scoreModel[0]
         ROCKPAPERSCISSOR(arrayOptions.get(0), arrayOptions.get(1));
     }
     

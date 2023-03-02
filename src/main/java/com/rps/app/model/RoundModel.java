@@ -1,14 +1,14 @@
 package com.rps.app.model;
 
+import com.rps.app.utils.Shape;
 import com.rpsgame.app.game.Score;
-import com.rpsgame.app.game.players.Shapes;
 
 public class RoundModel {
 
     private int roundNumber;
     private Score score;
-    private Shapes player1Shape;
-    private Shapes player2Shape;
+    private Shape player1Shape;
+    private Shape player2Shape;
 
     public RoundModel(Score score, int roundNumber) {
         this.score = score;
@@ -35,19 +35,19 @@ public class RoundModel {
         score.updateP2Score();
     }
 
-    public Shapes getPlayer1Shape() {
+    public Shape getPlayer1Shape() {
         return player1Shape;
     }
 
-    public void setPlayer1Shape(Shapes player1) {
+    public void setPlayer1Shape(Shape player1) {
         this.player1Shape = player1;
     }
 
-    public Shapes getPlayer2Shape() {
+    public Shape getPlayer2Shape() {
         return player2Shape;
     }
 
-    public void setPlayer2Shape(Shapes player2) {
+    public void setPlayer2Shape(Shape player2) {
         this.player2Shape = player2;
     }
 }
