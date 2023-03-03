@@ -1,5 +1,6 @@
 {
     "java.project.sourcePaths": [
         "com/rps/app"
-    ]
+    ],
+    "java.configuration.updateBuildConfiguration": "interactive"
 }
