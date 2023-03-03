@@ -27,15 +27,15 @@ public class RPSController {
     // 1. mando a llamar a un metodo de una dependencia del tipo vista de este controller
     // 2. ese metodo devuelve un entero y llama a distintos metodos dependiendo de su valor
     // ya sea un metodo dentro de este controller o de la misma dependencia tipo vista
-    public void play() {
-        int flagOption = rpsGameView.showMainMenu();
-        if(flagOption != 0) {
-            setupGame();
-        }
-        if(flagOption == 0) {
-            rpsGameView.showExitGame();
-        }
-    }
+    // public void play() {
+    //     int flagOption = rpsGameView.showMainMenu();
+    //     if(flagOption != 0) {
+    //         setupGame();
+    //     }
+    //     if(flagOption == 0) {
+    //         rpsGameView.showExitGame();
+    //     }
+    // }
 
     // 1. obtengo un entero de llamar al metodo de un controlador de esta clase
     // 2. con esa opcion creo 2 controllers del tipo playerController dentro de un

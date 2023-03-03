@@ -1,21 +1,44 @@
 package com.rps.app;
 
+import com.rps.app.controller.MatchController;
 import com.rps.app.controller.RPSController;
-import com.rps.app.model.RPSGame;
+import com.rps.app.model.RPSGameModel;
+
+/**
+ * punto de entrada del juego RPSGameApp
+ * 1. mostrar menu principal aca antes de crear controladores
+ * 2. crear la vista que mostrara el menu principal
+ * 3. obtener de esa vista la opcion para seleccionar el metodo que va a
+ * pasar al matchController
+ */
 
 public class RockScissorsPaperApp {
-    
-    private RPSGame game;
-    private RPSController rpsController;
+
+    private RPSGameModel gameModel;
+    private MatchController matchController;
+    // private RPSController rpsController;
 
     public RockScissorsPaperApp() {
-        game = new RPSGame();
-        rpsController = new RPSController(game.getMatch());
+        this.gameModel = new RPSGameModel();
+        this.matchController = new MatchController(gameModel.getMatch());
+        // rpsController = new RPSController(game.getMatch());
     }
 
     public void runGame() {
-        rpsController.play();
-        rpsController.initGame();
-        rpsController.announceWinnerOfTheMatch();
+        int optionSelected = appView.showMainMenu();
+        if (optionSelected != 0) {
+            setupGame();
+        }
+        if (optionSelected == 0) {
+            exit();
+        }
+    }
+
+    public void setupGame() {
+        matchController.setupGame();
+    }
+
+    public void exit() {
+        appView.showExitGame();
     }
 }
