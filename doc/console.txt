@@ -1,3 +1,24 @@
+
+RPSGame: the base class that sets up the game and handles the main game loop.
+Match: Contains a set of rounds and keeps track of the current score.
+Round: A single round of the game that compares two platers' shapes and determines the winner.
+score: keeps track of the score for a particular player.
+player: Represents a player in the game and keeps track of their name and current shapes
+shapes: an aenumeration of the possible shapes (rockm paeper, or scissors) that a player can player
+
+MatchController: Handles user input and updates the match model accordingly.
+MatchView: Displays the current match state to the user.
+
+roundController: handles user input and updates the round model accordingly.
+roundview: Displays the current round state to the user
+
+scoreController: handles user input and updates the score model accordingly.
+scoreView: displays the current score state to the user.
+
+PlayerController: Handles user input and updates the player model accordingly.
+playerView: Displays the current player state to the user.
+
+
 ###Welcome to Rock, Scissors AND Paper!!!
 ###THIS IS GAME WHERE YOU PICK A WEAPON AND FIGHT
 ###AGAINST YOUR OPPONENT. YOU WIN WHEN YOU REACH 3 POINTS!!!

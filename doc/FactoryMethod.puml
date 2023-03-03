@@ -1,0 +1,51 @@
+@startuml
+
+interface Smartwatch {
+    +showFeatures(): void
+}
+
+interface SmartwatchFactory {
+    +createSmartwatch(): Smartwatch
+}
+
+class BasicSmartwatch implements Smartwatch {
+    +showFeatures(): void
+}
+
+class FitnessSmartwatch implements Smartwatch {
+    +showFeatures(): void
+}
+
+class MusicSmartwatch implements Smartwatch {
+    +showFeatures(): void
+}
+
+class BasicSmartwatchFactory implements SmartwatchFactory {
+    +createSmartwatch(): Smartwatch
+}
+
+class FitnessSmartwatchFactory implements SmartwatchFactory {
+    +createSmartwatch(): Smartwatch
+}
+
+class MusicSmartwatchFactory implements SmartwatchFactory {
+    +createSmartwatch(): Smartwatch
+}
+
+class Main {
+    +main(args: String[]): void
+}
+
+
+Main --> SmartwatchFactory
+
+Smartwatch <.. SmartwatchFactory
+
+SmartwatchFactory <|-- BasicSmartwatchFactory
+SmartwatchFactory <|-- FitnessSmartwatchFactory
+SmartwatchFactory <|-- MusicSmartwatchFactory
+
+
+
+
+@enduml
