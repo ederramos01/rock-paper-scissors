@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 
 import com.rps.app.controller.player.HumanPlayerController;
 import com.rps.app.controller.player.PlayerController;
-import com.rpsgame.app.game.players.Player;
 
 public class MatchModelTest {
     @Test

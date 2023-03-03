@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.rps.app.controller.player.PlayerController;
-import com.rps.app.model.MatchModel;
 import com.rps.app.model.RoundModel;
 import com.rps.app.model.ScoreModel;
 import com.rps.app.model.player.PlayerModel;
@@ -30,9 +29,6 @@ public class RoundController {
     }
 
     public void executeRounds() {
-        // if(score == null && playersController == null){
-        // return;
-        // }
         if (score.getP1Score() < 3 && score.getP2Score() < 3) {
             score.updateRoundNumber();
             int currentRound = score.getRoundNumber();

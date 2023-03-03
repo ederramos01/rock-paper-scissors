@@ -46,7 +46,7 @@ public class RoundModel {
     }
 
     public void isATie() {
-        isTie = true;
+        this.isTie = true;
     }
 
 }
