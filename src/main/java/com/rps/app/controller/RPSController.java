@@ -10,7 +10,7 @@ import com.rps.app.view.RPSGameView;
 public class RPSController {
     
     private MatchModel matchModel;
-    private RPSGameView rpsGameView;
+    RPSGameView rpsGameView;
     private MatchController matchController;
     private PlayerController[] playersController;
     private RoundController roundController;
