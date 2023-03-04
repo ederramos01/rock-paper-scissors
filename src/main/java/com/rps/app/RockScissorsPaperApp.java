@@ -1,7 +1,6 @@
 package com.rps.app;
 
 import com.rps.app.controller.MatchController;
-import com.rps.app.controller.RPSController;
 import com.rps.app.model.RPSGameModel;
 import com.rps.app.view.AppView;
 
