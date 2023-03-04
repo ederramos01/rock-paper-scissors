@@ -23,7 +23,7 @@ public class MatchController {
     }
 
     public void setupGame() {
-        int flagOption = matchController.showMatchMenu();
+        int flagOption = matchview.displayMatchMenu();
 
         switch(flagOption) {
             case 1 -> {
@@ -46,16 +46,21 @@ public class MatchController {
         matchModel.newMatch(new PlayerModel[]{playersController[0].getPlayer(), playersController[1].getPlayer()});
         roundController.setScore(matchModel.getScore());
         roundController.setPlayerController(playersController);
+        runGame();
     }
 
-
-
-    public int showMatchMenu() {
-        return matchview.displayMatchMenu();
+    public void runGame() {
+        roundController.setupNewRound();
+        finishGame();
     }
-
     
-    public void announceWinnerOfTheMatch(PlayerModel winner) {
-        matchview.announceWinnerOfTheMatch(winner);
+    public void finishGame() {
+        matchModel.addRoundsList(roundController.getRounds());
+        announceWinnerOfTheMatch();
+    }
+
+    public void announceWinnerOfTheMatch() {
+        matchModel.setWinner(roundController.getLastWinner());
+        matchview.announceWinnerOfTheMatch(matchModel.getWinner());
     }
 }

@@ -26,6 +26,10 @@ public class MatchModel {
         this.rounds.add(round);
     }
 
+    public void addRoundsList(ArrayList<RoundModel> list) {
+        rounds = list;
+    }
+
     public ArrayList<RoundModel> getRoundsList() {
         return this.rounds;
     }

@@ -3,6 +3,7 @@ package com.rps.app;
 import com.rps.app.controller.MatchController;
 import com.rps.app.controller.RPSController;
 import com.rps.app.model.RPSGameModel;
+import com.rps.app.view.AppView;
 
 /**
  * punto de entrada del juego RPSGameApp
@@ -16,12 +17,12 @@ public class RockScissorsPaperApp {
 
     private RPSGameModel gameModel;
     private MatchController matchController;
-    // private RPSController rpsController;
+    private AppView appView;
 
     public RockScissorsPaperApp() {
         this.gameModel = new RPSGameModel();
+        this.appView = new AppView();
         this.matchController = new MatchController(gameModel.getMatch());
-        // rpsController = new RPSController(game.getMatch());
     }
 
     public void runGame() {

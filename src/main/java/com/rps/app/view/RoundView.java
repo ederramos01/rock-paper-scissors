@@ -8,7 +8,7 @@ import com.rps.app.utils.Shape;
 
 public class RoundView {
 
-    public ArrayList<Shape> pickUpAShape(PlayerController[] playersController, int round, List<Integer> score) {
+    public ArrayList<Shape> selectShapes(PlayerController[] playersController, int round, List<Integer> score) {
         Shape p1option;
         Shape p2option;
         ArrayList<Shape> shapesList = new ArrayList<>();
