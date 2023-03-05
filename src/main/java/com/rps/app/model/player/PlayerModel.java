@@ -5,8 +5,6 @@ public class PlayerModel {
     private String name;
     private PlayerType playerType;
 
-    
-
     public PlayerModel(String name) {
         this.name = name;
     }
