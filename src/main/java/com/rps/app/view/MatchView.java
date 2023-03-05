@@ -13,8 +13,6 @@ public class MatchView {
         listPlayers[0] = assignTypeOfPlayer(1);
         listPlayers[1] = assignTypeOfPlayer(2);
 
-        System.out.println(listPlayers[0]);
-        System.out.println(listPlayers[1]);
         return listPlayers;
     }
 
