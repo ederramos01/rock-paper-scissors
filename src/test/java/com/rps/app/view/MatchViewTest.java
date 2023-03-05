@@ -15,11 +15,11 @@ public class MatchViewTest {
 
     @Test
     public void newTest() {
-        MatchView matchView = mock(MatchView.class);
+        // MatchView matchView = mock(MatchView.class);
 
-        when(matchView.displayMatchMenu()).thenReturn(1);
+        // when(matchView.displayMatchMenu()).thenReturn(1);
         
-        assertEquals(1, matchView.displayMatchMenu());
+        // assertEquals(1, matchView.displayMatchMenu());
         // matchView.displayMatchMenu();
         // verify(matchView, times(1)).displayMatchMenu();
 

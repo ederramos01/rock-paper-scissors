@@ -5,6 +5,7 @@ import com.rps.app.controller.player.HumanPlayerController;
 import com.rps.app.controller.player.PlayerController;
 import com.rps.app.model.MatchModel;
 import com.rps.app.model.player.PlayerModel;
+import com.rps.app.model.player.PlayerType;
 import com.rps.app.view.MatchView;
 
 public class MatchController {
@@ -23,11 +24,11 @@ public class MatchController {
     }
 
     public void setupGame() {
-        int flagOption = matchview.displayMatchMenu();
-
-        switch(flagOption) {
+        PlayerType[] listPlayerToCreate = matchview.displayMatchMenu();
+        //aqui es de implementar el factory
+        switch(1) {
             case 1 -> {
-                System.out.println("option received " + flagOption);
+                // System.out.println("option received " + flagOption);
                 playersController[0] = new HumanPlayerController();
                 playersController[1] = new HumanPlayerController();
             }

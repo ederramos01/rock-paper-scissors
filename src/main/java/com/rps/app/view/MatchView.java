@@ -1,22 +1,41 @@
 package com.rps.app.view;
 
 import com.rps.app.model.player.PlayerModel;
+import com.rps.app.model.player.PlayerType;
 import com.rps.app.utils.Console;
 
 public class MatchView {
 
-    public int displayMatchMenu() {
+    public PlayerType[] displayMatchMenu() {
+        
+        PlayerType[] listPlayers = new PlayerType[2];
+        
+        listPlayers[0] = assignTypeOfPlayer(1);
+        listPlayers[1] = assignTypeOfPlayer(2);
+
+        System.out.println(listPlayers[0]);
+        System.out.println(listPlayers[1]);
+        return listPlayers;
+    }
+
+    public PlayerType assignTypeOfPlayer(int numberOfPlayer) {
         int menuOption = 0;
-        System.out.println("# SETUP YOUR GAME BY CHOOSING YOUR PLAYERS IN ORDER TO START PLAYING:\n" +
+        PlayerType playerType = null;
+        System.out.println("# WE ARE GOING TO SETUP THE PLAYER "+numberOfPlayer+", PLEASE SELECT IT:\n" +
                 "#\n" +
-                "#1. HUMAN VS HUMAN\n" +
-                "#2. HUMAN VS PC\n" +
-                "#3. PC VS PC");
-        while (menuOption < 1 || menuOption >= 4) {
+                "#1. HUMAN PLAYER\n" +
+                "#2. PC PLAYER\n");
+        while (menuOption < 1 || menuOption >= 3) {
             System.out.print("\tYour option: ");
             menuOption = Console.getInt();
         }
-        return menuOption;
+        if (menuOption == 1) {
+            playerType = PlayerType.HUMANPLAYER;
+        }
+        if (menuOption == 2) {
+            playerType = PlayerType.IA;
+        }
+        return playerType;
     }
 
     public void announceWinnerOfTheMatch(PlayerModel winner) {
