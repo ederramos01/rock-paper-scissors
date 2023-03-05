@@ -3,6 +3,7 @@ package com.rps.app.controller;
 import com.rps.app.controller.player.ComputerPlayerController;
 import com.rps.app.controller.player.HumanPlayerController;
 import com.rps.app.controller.player.PlayerController;
+import com.rps.app.controller.player.PlayerFactory;
 import com.rps.app.model.MatchModel;
 import com.rps.app.model.player.PlayerModel;
 import com.rps.app.model.player.PlayerType;
@@ -21,26 +22,13 @@ public class MatchController {
         this.matchview = new MatchView();
         this.playersController = new PlayerController[2];
         this.roundController = new RoundController();
+        
     }
 
     public void setupGame() {
         PlayerType[] listPlayerToCreate = matchview.displayMatchMenu();
-        //aqui es de implementar el factory
-        switch(1) {
-            case 1 -> {
-                // System.out.println("option received " + flagOption);
-                playersController[0] = new HumanPlayerController();
-                playersController[1] = new HumanPlayerController();
-            }
-            case 2 -> {
-                playersController[0] = new HumanPlayerController();
-                playersController[1] = new ComputerPlayerController();
-            }
-            case 3 -> {
-                playersController[0] = new ComputerPlayerController();
-                playersController[1] = new ComputerPlayerController();
-            }
-        }
+        
+        playersController = PlayerFactory.CreatePlayer(playersController, listPlayerToCreate);
 
         playersController[0].getNewGamePlayer();
         playersController[1].getNewGamePlayer();
