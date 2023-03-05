@@ -1,7 +1,5 @@
 package com.rps.app.controller;
 
-import com.rps.app.controller.player.ComputerPlayerController;
-import com.rps.app.controller.player.HumanPlayerController;
 import com.rps.app.controller.player.PlayerController;
 import com.rps.app.controller.player.PlayerFactory;
 import com.rps.app.model.MatchModel;
