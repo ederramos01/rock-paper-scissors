@@ -5,6 +5,7 @@ class RPSapp {
     +RPS
 }
 
+/'PACKAGE VIEW'/
 package View{
     class RPSGameView {
         + void rpsGame()
@@ -26,7 +27,7 @@ package View{
 
     }
 }
-
+/'PACKAGE CONTROLLER'/
 package Controller {
     class RPSGamecontroller {
         - Players playerA
@@ -40,6 +41,10 @@ package Controller {
     }
 
     class MatchController {
+        - MatchModel matchModel
+        - PlayerController[] playersController
+        - RoundController roundController
+        
         - Rounds rounds
         - Score score
         + void match()
@@ -85,10 +90,11 @@ package Controller {
         + void updateScoreGame()
     }
 
-    RPSapp *-- RPSGamecontroller
+    /'RPSapp *-- RPSGamecontroller'/
+    RPSapp *-- MatchController
     PlayerController <|-- HumanPlayerController
     PlayerController <|-- ComputerPlayercontroller
-    RPSGamecontroller --> MatchController
+    /'RPSGamecontroller --> MatchController'/
     MatchController --> RoundController
     MatchController --> ScoreController
     PlayerController <-- MatchController

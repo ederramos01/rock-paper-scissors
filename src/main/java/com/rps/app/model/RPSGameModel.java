@@ -1,10 +1,11 @@
 package com.rps.app.model;
 
-public class RPSGame {
+public class RPSGameModel {
     
     // array de matches
     MatchModel matchModel;
-    public RPSGame() {
+
+    public RPSGameModel() {
         this.matchModel = new MatchModel();
     }
 

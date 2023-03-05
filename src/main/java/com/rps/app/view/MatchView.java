@@ -7,7 +7,7 @@ public class MatchView {
 
     public int displayMatchMenu() {
         int menuOption = 0;
-        System.out.println("# SETUP YOUR GAME BY CHOOSING YOUR PLAYERS:\n" +
+        System.out.println("# SETUP YOUR GAME BY CHOOSING YOUR PLAYERS IN ORDER TO START PLAYING:\n" +
                 "#\n" +
                 "#1. HUMAN VS HUMAN\n" +
                 "#2. HUMAN VS PC\n" +
