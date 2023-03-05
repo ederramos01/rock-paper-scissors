@@ -23,6 +23,7 @@ public class MatchController {
     }
 
     public void setupGame() {
+        //devuelve un typePlayer
         int flagOption = matchview.displayMatchMenu();
 
         switch(flagOption) {
