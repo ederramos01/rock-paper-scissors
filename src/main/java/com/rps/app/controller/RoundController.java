@@ -44,8 +44,6 @@ public class RoundController {
             RoundModel round = new RoundModel(score.getRoundNumber());
             addRound(round);
             executeRound(round);
-        } else {
-            getLastWinner();
         }
     }
 
