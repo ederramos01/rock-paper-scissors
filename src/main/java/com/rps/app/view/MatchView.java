@@ -19,10 +19,9 @@ public class MatchView {
     public PlayerType assignTypeOfPlayer(int numberOfPlayer) {
         int menuOption = 0;
         PlayerType playerType = null;
-        System.out.println("# SETTING UP PLAYER "+ numberOfPlayer + ": " +
-                "#\n" +
-                "#1. HUMAN PLAYER\n" +
-                "#2. PC PLAYER\n");
+        System.out.println("# SETTING UP PLAYER "+ numberOfPlayer + ":\n" +
+                "# 1. HUMAN PLAYER\n" +
+                "# 2. PC PLAYER\n");
         while (menuOption < 1 || menuOption >= 3) {
             System.out.print("\tYour option: ");
             menuOption = Console.getInt();
@@ -37,7 +36,7 @@ public class MatchView {
     }
 
     public void announceWinnerOfTheMatch(PlayerModel winner) {
-        System.out.println("KUDOS!! THE WINNER IS: " + winner.getName());
+        System.out.println("# KUDOS!! THE WINNER IS: " + winner.getName());
     }
 }
 

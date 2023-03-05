@@ -8,9 +8,11 @@ public class AppView {
         int menuOption1 = 0;
         int flagToSend = 1;
 
-        getMessage();
-        System.out.println("#1. Start Playing");
-        System.out.println("#2. QUIT");
+        Console.printTitle(getMessage());
+        System.out.println("#");
+        System.err.println("# Menu:");
+        System.out.println("# 1. Start Playing");
+        System.out.println("# 2. QUIT");
         System.out.println("#");
 
         while (menuOption1 < 1 || menuOption1 > 3) {
@@ -27,10 +29,11 @@ public class AppView {
         System.out.println("Exiting game... bye bye!");
     }
 
-    public void getMessage() {
-        System.out.println("#Welcome to Rock, Scissors, Paper!!!\n" +
-                "#THIS IS A GAME WHERE YOU PICK A WEAPON AND FIGHT AGAINST\n" +
-                "#YOUR OPPONENT. YOU WIN WHEN YOU REACH 3 POINTS FIRST!!!\n" +
-                "#MENU:\n#");
+    public String getMessage() {
+        String welcomeMessage = "#Welcome to Rock, Scissors, Paper!!!\n" +
+                "#THIS IS A GAME WHERE YOU CAN PICK A WEAPON AND FIGHT\n" +
+                "#AGAINST YOUR OPPONENT. YOU WIN WHEN YOU REACH 3 POINTS FIRST!!!";
+
+        return welcomeMessage;
     }
 }

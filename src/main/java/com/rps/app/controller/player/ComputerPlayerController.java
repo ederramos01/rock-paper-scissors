@@ -7,11 +7,6 @@ import com.rps.app.view.player.PlayerView;
 
 public class ComputerPlayerController extends PlayerController {
 
-    public ComputerPlayerController() {
-        super();
-        
-    }
-
     @Override
     protected PlayerView initPlayerView() {
         return new ComputerPlayerView();

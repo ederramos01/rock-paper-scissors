@@ -63,9 +63,7 @@ public class RoundController {
 
     
     private int ROCKPAPERSCISSOR(List<Shape> playerShapes) {
-        System.out.println("##READY . . . ?\n" +
-                "#\n" +
-                "#\n");
+        roundView.announceMatchBeginning();
         if ((playerShapes.get(0) == Shape.Paper && playerShapes.get(1) == Shape.Rock)) {
             updateScoreGame(0);
             return 0;

@@ -20,6 +20,5 @@ public class HumanPlayerController extends PlayerController{
     @Override
     public Shape selectShape() {
         return playerView.selectShape();
-    }
-    
+    }  
 }
