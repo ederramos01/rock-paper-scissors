@@ -188,6 +188,4 @@ package model {
     RoundModel o-- Shapes
 }
 
-/'MatchController --> MatchView'/
-
 @enduml

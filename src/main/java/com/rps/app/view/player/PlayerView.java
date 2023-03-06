@@ -8,6 +8,7 @@ public abstract class PlayerView {
     public PlayerModel getPlayer(int i) {
         String name = "";
         do {
+            //getName("");
             name = getName("Name for player " + i + ": ");
             name = name.trim();
         } while (name.length()==0);
