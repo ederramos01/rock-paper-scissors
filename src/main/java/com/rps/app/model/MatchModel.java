@@ -45,8 +45,4 @@ public class MatchModel {
     public void setWinner(PlayerModel winner) {
         this.winner = winner;
     }
-
-    // public Player[] getPlayers() {
-    //     return players.clone();
-    // }
 }

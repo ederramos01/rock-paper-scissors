@@ -4,14 +4,6 @@ import com.rps.app.controller.MatchController;
 import com.rps.app.model.RPSGameModel;
 import com.rps.app.view.AppView;
 
-/**
- * punto de entrada del juego RPSGameApp
- * 1. mostrar menu principal aca antes de crear controladores
- * 2. crear la vista que mostrara el menu principal
- * 3. obtener de esa vista la opcion para seleccionar el metodo que va a
- * pasar al matchController
- */
-
 public class RockScissorsPaperApp {
 
     private RPSGameModel gameModel;
