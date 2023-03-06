@@ -114,20 +114,20 @@ package Controller {
         + selectShape()
     }
 
-    class ScoreController {
+    /'class ScoreController {
         - int p1Score
         - int p2Score
         + void showFinalResults()
         + int getP1Score()
         + int getP2Score()
         + void updateScoreGame()
-    }
+    }'/
 
     RPSapp *-- MatchController
     PlayerController <|-- HumanPlayerController
     PlayerController <|-- ComputerPlayercontroller
     MatchController --> RoundController
-    MatchController --> ScoreController
+    /'MatchController --> ScoreController'/
     PlayerController <-- MatchController
 
 }
