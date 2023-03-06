@@ -5,10 +5,10 @@ import com.rps.app.utils.Shape;
 
 public abstract class PlayerView {
 
-    public PlayerModel getPlayer() {
+    public PlayerModel getPlayer(int i) {
         String name = "";
         do {
-            name = getName("Name for this player: ");
+            name = getName("Name for player " + i + ": ");
             name = name.trim();
         } while (name.length()==0);
         return new PlayerModel(name);

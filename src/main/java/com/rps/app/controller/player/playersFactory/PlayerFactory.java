@@ -7,7 +7,8 @@ import com.rps.app.model.player.PlayerType;
 
 public class PlayerFactory {
 
-    public static PlayerController[] CreatePlayer(PlayerController[] playerControllers, PlayerType[] playerType){
+    //PlayerController[]
+    public static void CreatePlayer(PlayerController[] playerControllers, PlayerType[] playerType){
         
         for (int i = 0; i < playerType.length; i++) {
             if(playerType[i].equals(PlayerType.HUMANPLAYER)) {
@@ -17,7 +18,7 @@ public class PlayerFactory {
                 playerControllers[i] = new ComputerPlayerController();
             }
         }
-        return playerControllers;
+        //return playerControllers;
     }
     
 }

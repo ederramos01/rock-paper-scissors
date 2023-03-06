@@ -25,14 +25,21 @@ public class MatchController {
     public void setupGame() {
         
         PlayerType[] playersList = matchview.displayMatchMenu();
+        // procede a crear los tipos de controladores para jugadores elegidos
         PlayerFactory.CreatePlayer(playersController, playersList);
-        // hacer estas dos lineas de forma automatica en un metodo
-        playersController[0].getNewGamePlayer();
-        playersController[1].getNewGamePlayer();
+        getPlayersForTheMatch();
         matchModel.newMatch(new PlayerModel[]{playersController[0].getPlayer(), playersController[1].getPlayer()});
         roundController.setScore(matchModel.getScore());
         roundController.setPlayerController(playersController);
         runGame();
+    }
+
+    private void getPlayersForTheMatch() {
+        int i = 1;
+        for (PlayerController playerController : playersController) {
+            playerController.getNewGamePlayer(i);
+            i++;
+        }
     }
 
     private void runGame() {

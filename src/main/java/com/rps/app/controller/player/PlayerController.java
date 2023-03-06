@@ -20,8 +20,8 @@ public abstract class PlayerController {
     protected abstract PlayerView initPlayerView();
     protected abstract PlayerType initPlayerType();
 
-    public void getNewGamePlayer() {
-        this.playerModel = playerView.getPlayer();
+    public void getNewGamePlayer(int i) {
+        this.playerModel = playerView.getPlayer(i);
         this.playerModel.setPlayerType(playerType);
     }
 
