@@ -15,8 +15,8 @@ public class RoundControllerTest {
     @Test
     public void callExecuteGameTest() {
         RoundController roundController = mock(RoundController.class);
-        roundController.executeRounds();
-        verify(roundController, times(1)).executeRounds();
+        roundController.setupNewRound();
+        verify(roundController, times(1)).setupNewRound();
     }
 
     @Test

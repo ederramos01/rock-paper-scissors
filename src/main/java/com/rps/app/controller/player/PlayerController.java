@@ -20,20 +20,15 @@ public abstract class PlayerController {
     protected abstract PlayerView initPlayerView();
     protected abstract PlayerType initPlayerType();
 
-    // aqui se hace el set del modelo del jugador
     public void getNewGamePlayer() {
         this.playerModel = playerView.getPlayer();
         this.playerModel.setPlayerType(playerType);
     }
 
-    // para devolver este modelo de jugador al modelo principal desde el controlador principal
-    // este moetodo que sea abstracto 
     public PlayerModel getPlayer() {
         return this.playerModel;
     }
 
-    // para mostrar el nombre del jugador durante las rondas
-    // tambien puede ser abstracto
     public String getName() {
         return playerModel.getName();
     }
