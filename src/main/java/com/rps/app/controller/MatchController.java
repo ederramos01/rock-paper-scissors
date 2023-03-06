@@ -1,7 +1,5 @@
 package com.rps.app.controller;
 
-import com.rps.app.controller.player.ComputerPlayerController;
-import com.rps.app.controller.player.HumanPlayerController;
 import com.rps.app.controller.player.PlayerController;
 import com.rps.app.controller.player.playersFactory.PlayerFactory;
 import com.rps.app.model.MatchModel;
@@ -13,7 +11,6 @@ public class MatchController {
     
     private MatchView matchview;
     private MatchModel matchModel;
-    private MatchController matchController;
     private PlayerController[] playersController;
     private RoundController roundController;
 
@@ -37,17 +34,17 @@ public class MatchController {
         runGame();
     }
 
-    public void runGame() {
+    private void runGame() {
         roundController.setupNewRound();
         finishGame();
     }
     
-    public void finishGame() {
+    private void finishGame() {
         matchModel.addRoundsList(roundController.getRounds());
         announceWinnerOfTheMatch();
     }
 
-    public void announceWinnerOfTheMatch() {
+    private void announceWinnerOfTheMatch() {
         matchModel.setWinner(roundController.getLastWinner());
         matchview.announceWinnerOfTheMatch(matchModel.getWinner());
     }

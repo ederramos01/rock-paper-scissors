@@ -30,7 +30,7 @@ public class RoundController {
         this.playersController = playersController;
     }
 
-    public void addRound(RoundModel round) {
+    private void addRound(RoundModel round) {
        rounds.add(round);
     }
 
@@ -47,7 +47,7 @@ public class RoundController {
         }
     }
 
-    public void executeRound(RoundModel round) {
+    private void executeRound(RoundModel round) {
         ArrayList<Shape> shapesList = new ArrayList<>();
         shapesList = roundView.selectShapes(playersController, round.getRoundNumber(), score.getScoreList());
         round.setPlayer1Shape(shapesList.get(0));
@@ -104,7 +104,7 @@ public class RoundController {
     }
 
     private void announceWinnerOfTheRound(List<Shape> playerShapes, int winner, PlayerController[] playersController, List<Integer> score) {
-        roundView.announceWinnerView(playerShapes, winner, playersController, score);
+        roundView.announceRoundWinner(playerShapes, winner, playersController, score);
         setupNewRound();
     }
     

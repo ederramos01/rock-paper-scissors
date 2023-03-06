@@ -39,17 +39,3 @@ public class MatchView {
         System.out.println("# KUDOS!! THE WINNER IS: " + winner.getName());
     }
 }
-
-// public int displayMatchMenu() {
-    //     int menuOption = 0;
-    //     System.out.println("# SETUP YOUR GAME BY CHOOSING YOUR PLAYERS IN ORDER TO START PLAYING:\n" +
-    //             "#\n" +
-    //             "#1. HUMAN VS HUMAN\n" +
-    //             "#2. HUMAN VS PC\n" +
-    //             "#3. PC VS PC");
-    //     while (menuOption < 1 || menuOption >= 4) {
-    //         System.out.print("\tYour option: ");
-    //         menuOption = Console.getInt();
-    //     }
-    //     return menuOption;
-    // }
