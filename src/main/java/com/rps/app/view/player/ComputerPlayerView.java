@@ -9,7 +9,8 @@ public class ComputerPlayerView extends PlayerView{
 
     @Override
     public String getName(String message) {
-        Console.readString("Assigning a random name, press enter to continue . . .");
+        //Console.readString("Assigning a random name for this pc player. . .\n");
+        Console.printLine("# Assigning a random name for this pc player. . .");
         String name = ComputerPlayerView.getAlphaNumericString(10);
         return name;
     }

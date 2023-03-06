@@ -1,84 +1,117 @@
 @startuml
 
 class RPSapp {
-    - Match match
-    +RPS
+    - GameModel gameModel
+    - MatchController matchController
+    - AppView appView
+    + RockScissorsPaperApp()
+    + runGame()
+    + setupGame()
+    + exit()
 }
 
 /'PACKAGE VIEW'/
 package View{
-    class RPSGameView {
-        + void rpsGame()
-        + void executeGame()
+    class AppView {
+        + showMainMenu()
+        + showExitGame()
+        + getMessage()
     }
 
     class MatchView {
-        + void match()
-        + void executeInitialRound()
-        + void executeRounds()
+        + displayMatchMenu()
+        + assignTypeOfPlayer(int numberOfPlayer)
+        + announceWinnerOfTheMatch(PlayerModel winner)
     }
 
     class RoundView {
+        + selectShapes()
+        + announceMatchBeginning()
+        + announceRoundWinner()
         + void Rounds()
         + void runningRound()
     }
 
     class PlayerView {
+        + getPlayer()
+        + getName(String message)
+        + selectShape()
+    }
+
+    class HumanPlayerView {
+        + getName(String message)
+        + selectShape()
+    }
+
+    class ComputerPlayerView {
+        + getName(String message)
+        + selectShape()
+        + getAlphaNumericString(int n)
 
     }
+
+    PlayerView <|-- HumanPlayerView 
+    PlayerView <|-- ComputerPlayerView
+    AppView ..> MatchView
+    MatchView ..> RoundView
+    MatchView ..> PlayerView
 }
+
 /'PACKAGE CONTROLLER'/
 package Controller {
-    class RPSGamecontroller {
-        - Players playerA
-        - Players playerB
-        - Match match
-        + void rpsGame()
-        + void executeGame()
-        + void exitGame()
-        + void createPlayers()
-        + void createMatch()
-    }
-
     class MatchController {
         - MatchModel matchModel
+        - MatchView matchview
         - PlayerController[] playersController
         - RoundController roundController
-        
-        - Rounds rounds
-        - Score score
-        + void match()
-        + void executeInitialRound()
-        + void executeRounds()
-        + void checkScore()
-        + void announceWinner()
-        + void updateRoundNumber()
+        + MatchController(MatchModel matchModel)
+        + setupGame()
+        - runGame()
+        - finishGame()
+        - announceWinnerOfTheMatch()
     }
 
     class RoundController {
-        - Score score
-        - Players[] players
-        - int myRoundNumber
-        - Shapes playerAShapeSelected
-        - Shapes playerBShapeSelected
-        + void Rounds()
-        + void runningRound()
-        + void checkWinnerOfTheRound()
+        - PlayerController[] playersController
+        - ScoreModel score
+        - RoundView roundView
+        - ArrayList<RoundModel> rounds
+        + RoundController()
+        + setScore()
+        + setPlayerController
+        - addRound()
+        + getRounds()
+        + setupNewRound()
+        - executeRound(RoundModel round)
+        - ROCKPAPERSCISSOR(List<Shape> playerShapes)
+        - announceWinnerOfTheRound()
+        + getLastWinner()
+        - updateScoreGame(int assingPoint)
     }
 
     abstract class PlayerController {
-        - int id_Player
-        - String name
-        - TypePlayer id_TypePlayer
-        + Shape chooseAShape()
+        - PlayerModel playerModel
+        - PlayerView playerView
+        - PlayerType playerType
+        + PlayerController() 
+        - PlayerView initPlayerView()
+        - PlayerType initPlayerType()
+        + getNewGamePlayer()
+        + getPlayer()
+        + getName()
+        + selectShape()
     }
 
     class HumanPlayerController {
-        + Shape chooseAShape()
+        + initPlayerView()
+        + initPlayerType()
+        + selectShape()
     }
 
     class ComputerPlayercontroller {
-        + Shape chooseAShape()
+        + initPlayerView()
+        + initPlayerType()
+        + selectShape()
     }
 
     class ScoreController {
@@ -90,74 +123,71 @@ package Controller {
         + void updateScoreGame()
     }
 
-    /'RPSapp *-- RPSGamecontroller'/
     RPSapp *-- MatchController
     PlayerController <|-- HumanPlayerController
     PlayerController <|-- ComputerPlayercontroller
-    /'RPSGamecontroller --> MatchController'/
     MatchController --> RoundController
     MatchController --> ScoreController
     PlayerController <-- MatchController
 
 }
 
+/'PACKAGE MODEL'/
 package model {
+    class RPSGameModel {
+        - MatchModel matchModel
+        + getMatch()
+    }
 
-    class Game {
-        -id_match
+    class MatchModel {
+        - PlayerModel[] players
+        - ScoreModel score
+        - ArrayList<RoundModel> rounds
+        - PlayerModel winner
+        + newMatch(PlayerModel[] players)
     }
     
-    class Round {
-    -id_round int
-    -id_match Match
-    -id_shape1 Shape
-    -id_shape2 Shape
-    -id_score Score
+    class RoundModel {
+        - int roundNumber
+        - Shape player1Shape
+        - Shape player2Shape
+        - PlayerModel winner
+        - boolean isTie
+        + RoundModel(int currentRound)
+    }
+
+    class ScoreModel {
+        - int roundNumber
+        - int p1Score
+        - int p2Score
+        + ScoreModel()
+    }
+
+    class PlayerModel{
+        - name
+        - playerType
+        + PlayerModel(String name)
+    }
+
+    class TypePlayer {
+        HUMANPLAYER
+        IA
+    }
+
+    class Shapes {
+        Rock
+        Paper
+        Scissors
+    }
+
+    RPSGameModel *-- MatchModel
+    MatchModel *-- RoundModel
+    MatchModel *-- PlayerModel
+    PlayerModel *-- TypePlayer
+    MatchModel *-- ScoreModel
+    RoundModel o-- Shapes
 }
 
-class Match {
-    -id_match int
-    -id_score Score
-    -id_player1 Player
-    -id_player2 Player
-}
-
-class Score {
-    -id_score int
-    -id_player1 Player
-    -id_player2 Player
-    -id_winner Player
-}
-
-class Shape {
-    -id_shape int
-    -name String
-}
-
-class Player{
-    -id_player int
-    -name String
-    -id_typePlayer TypePlayer
-}
-
-class TypePlayer {
-    -id_typePlayer int
-    -name String
-}
-    Game *-- Match
-    Match *-- Round
-    Match *-- Player
-    Round o-- Shape
-    Player *-- TypePlayer
-    Match *-- Score 
-}
-
-RPSGameView ..> MatchView
-MatchView ..> RoundView
-MatchView ..> PlayerView
-
-RPSGamecontroller --> RPSGameView
-MatchController --> MatchView
-RPSGamecontroller --> Match
+/'MatchController --> MatchView'/
 
 @enduml

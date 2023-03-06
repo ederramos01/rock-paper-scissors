@@ -1,7 +1,7 @@
 package com.rps.app.controller;
 
 import com.rps.app.controller.player.PlayerController;
-import com.rps.app.controller.player.PlayerFactory;
+import com.rps.app.controller.player.playersFactory.PlayerFactory;
 import com.rps.app.model.MatchModel;
 import com.rps.app.model.player.PlayerModel;
 import com.rps.app.model.player.PlayerType;
@@ -11,7 +11,6 @@ public class MatchController {
     
     private MatchView matchview;
     private MatchModel matchModel;
-    private MatchController matchController;
     private PlayerController[] playersController;
     private RoundController roundController;
 
@@ -24,10 +23,10 @@ public class MatchController {
     }
 
     public void setupGame() {
-        PlayerType[] listPlayerToCreate = matchview.displayMatchMenu();
         
-        playersController = PlayerFactory.CreatePlayer(playersController, listPlayerToCreate);
-
+        PlayerType[] playersList = matchview.displayMatchMenu();
+        PlayerFactory.CreatePlayer(playersController, playersList);
+        // hacer estas dos lineas de forma automatica en un metodo
         playersController[0].getNewGamePlayer();
         playersController[1].getNewGamePlayer();
         matchModel.newMatch(new PlayerModel[]{playersController[0].getPlayer(), playersController[1].getPlayer()});
@@ -36,17 +35,17 @@ public class MatchController {
         runGame();
     }
 
-    public void runGame() {
+    private void runGame() {
         roundController.setupNewRound();
         finishGame();
     }
     
-    public void finishGame() {
+    private void finishGame() {
         matchModel.addRoundsList(roundController.getRounds());
         announceWinnerOfTheMatch();
     }
 
-    public void announceWinnerOfTheMatch() {
+    private void announceWinnerOfTheMatch() {
         matchModel.setWinner(roundController.getLastWinner());
         matchview.announceWinnerOfTheMatch(matchModel.getWinner());
     }
